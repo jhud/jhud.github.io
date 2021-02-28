@@ -1,0 +1,131 @@
+body
+{
+	background-color: #AAA;
+}
+
+div#heading
+{
+	font: normal 50px arial, sans-serif;
+	
+	font-weight: bolder;
+    color: black;
+   	text-align: left;
+    padding:10px;
+}
+
+div#subheading
+{
+	font: normal 16px arial, sans-serif;
+	
+	
+    color: black;
+   	text-align: left;
+    padding:10px;
+}
+
+
+
+div.intro
+{
+	font: normal 16px arial, sans-serif;
+	color: black;
+	background: white;
+	line-height: 150%;
+}
+
+div.reference-title
+{
+	font-weight:bold;
+}
+
+div.quote
+{
+	font-style:italic;
+	margin-left: 90px;
+}
+
+div.employer-title
+{
+	font-weight:bold;
+}
+
+div.employer-desc
+{
+	margin-left: 90px;
+	padding-bottom: 16px;
+}
+
+.project-image-large
+{
+	width: 100%;
+	box-shadow: none;
+	padding: 0px;
+}
+
+.box
+	{
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;	
+	margin-top: 2em;
+	padding: 0;
+	text-align: left;
+	width: 50em;	
+	background-color: white;
+	-moz-border-radius-topleft: 6px;
+	-moz-border-radius-topright: 6px;
+	border-radius: 6px; // for Opera
+	}
+ 	
+.content
+	{
+	padding:6px;
+	margin-left:12px;
+	margin-right:12px;
+	}
+
+.h2
+    {
+	font: normal 34px arial, sans-serif; 
+    font-weight: bolder;
+	padding-top: 12px;
+	padding-bottom: 16px;
+    }
+    	
+td
+	{
+	vertical-align:top;
+	padding: 14px;
+	}	
+
+.wrapper {
+    overflow:hidden;
+    width:1400px;
+    padding-bottom: 20px; /* Don't cut off shadow */
+}
+.wrapper div {
+    width:500px;
+}
+.wrapper img {
+    width:48px;
+    height:48px;
+    float:left;
+    margin:16px 16px 0 0;
+}
+
+
+img {
+	box-shadow: 3px 3px 5px #888888;
+	padding: 2px
+	}
+	
+.ioswidthcontent {
+	width:640px;
+}
+
+.key_image {
+	width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+	box-shadow: none;
+}

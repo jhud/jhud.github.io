@@ -1,0 +1,54 @@
+<html>
+<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+<head>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+	
+<script type="text/javascript" src="vocab-b1-2.js"> </script>
+
+<style>
+	.profile {
+		width: 100%;
+		text-align: center;
+		font-size: xx-large;
+		margin-top: 200px;
+	}
+	
+	.desc {
+		color: #777;
+	}
+</style>
+
+<script>
+
+	function nextWord() {
+		var idx = Math.random()*vocab.vocab.length;
+	
+		var f = vocab.vocab[Math.floor(idx)];
+		$("#userdata").empty()
+          var tblRow = "<span class='word'>" + f[0] + "</span>" +
+           " <span class='desc'>" + f[1] + "</span>" + "<br>"
+           $(tblRow).appendTo("#userdata");
+		   $('.word').attr('style','display: none');
+	}
+
+    $(function() {
+
+		nextWord();
+});
+</script>
+</head>
+
+<body>
+
+<div class="wrapper">
+<div class="profile">
+   <div id= "userdata" border="2">
+   </div>
+   <button onclick="$('.word').attr('style','display: initial');">Zeigen</button>
+   <button onclick="nextWord()">Nächste</button>
+
+</div>
+</div>
+
+</body>
+</html>

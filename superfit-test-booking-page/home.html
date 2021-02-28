@@ -1,0 +1,28 @@
+<head>
+</head>
+
+<body>
+<h1>Burning Palms Studio Webpage</h1>
+<a href="/">Home</a> | <a href="/">Schedule</a> | <a href="/">About</a>
+
+<script>
+    var is_safari = navigator.userAgent.indexOf("Safari") > -1;
+    // Chrome has Safari in the user agent so we need to filter (https://stackoverflow.com/a/7768006/1502448)
+    var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
+    if ((is_chrome) && (is_safari)) {is_safari = false;}  
+    if (is_safari) {
+        if (!document.cookie.match(/^(.*;)?\s*fixed\s*=\s*[^;]+(.*)?$/)) {
+            document.cookie = 'fixed=fixed; expires=Tue, 19 Jan 2038 03:14:07 UTC; path=/';
+            window.location.replace("https://super-fit.herokuapp.com/_safari_fix/");
+        }
+    }
+</script>
+
+<style>iframe{width: 1px;min-width: 100%;}</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.6.1/iframeResizer.min.js"></script>
+<iframe src="https://super-fit.herokuapp.com/timetable/2/" style="display:block;width:100%; height: 3500px; border: 0px; " id="tt_frame" scrolling="yes"></iframe>
+<script>iFrameResize({log:false}, '#tt_frame')</script>
+
+
+
+</body>
