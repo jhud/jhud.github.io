@@ -1,0 +1,302 @@
+body {
+	font-family: "Lato", arial, sans-serif;
+	margin: 0;
+}
+
+#navbar {
+	margin: 16px;
+	text-transform: uppercase;
+	font-size: 150%;
+	font-weight: 1;
+}
+
+#top_banner {
+	margin: 0px;
+	padding-top: 20px;
+	padding-bottom: 50px;
+	background-color: black; 
+	background-size: cover;
+	text-shadow: 0px 0px 8px rgba(0,0,0,1.0);
+}
+
+#heading
+{
+	font-size: 50px;
+    color: white;
+   	text-align: center;
+}
+
+#subheading
+{
+	font-size: 24px;
+	
+	font-weight: 200;
+	width: 50%;
+    color: white;
+	margin-left: auto;
+	margin-right: auto;
+   	text-align: center;
+}
+
+.main_list > * {
+	margin-bottom: 16px;
+}
+
+
+div.intro
+{
+	font: normal 16px arial, sans-serif;
+	color: black;
+	background: white;
+	line-height: 150%;
+}
+
+div.reference-title
+{
+	font-weight:bold;
+}
+
+div.quote
+{
+	font-style:italic;
+	margin-left: 90px;
+}
+
+div.employer-title
+{
+	font-weight:bold;
+}
+
+div.employer-desc
+{
+	margin-left: 90px;
+	padding-bottom: 16px;
+}
+
+.project-image-large
+{
+	display:block; width:100%; height:auto;
+	box-shadow: none;
+	padding: 0px;
+}
+
+.box
+	{
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;	
+	margin-top: 2em;
+	padding: 20px;
+	text-align: left;
+	max-width: 60em;	
+	}
+ 	
+.content
+	{
+	padding:6px;
+	margin-left:12px;
+	margin-right:12px;
+	}
+
+.h2
+{
+	font-size: 34px; 
+	padding-top: 12px;
+	padding-bottom: 28px;
+}
+
+	h3
+	    {
+		font-size: 30px; 
+		font-weight: normal;
+	    }
+    
+	h4
+	    {
+		font-size: 24px; 
+		font-weight: normal;
+		margin-top: 40px;
+		margin-bottom: 14px;
+	    }
+		
+td
+	{
+	vertical-align:top;
+	padding: 14px;
+	line-height: 1.5em;
+	}	
+
+.wrapper {
+    overflow:hidden;
+    max-width:1400px;
+    padding-bottom: 20px; /* Don't cut off shadow */
+}
+.wrapper div {
+    max-width:700px;
+}
+.wrapper img {
+     height:64px;
+     width: auto;
+    /*width:96px;
+    height:48px;*/
+    float:left;
+	padding: 6px;
+    margin:16px 16px 0 0;
+}
+
+img {
+
+	padding: 2px
+	}
+	
+.ioswidthcontent {
+	width:640px;
+}
+
+.key_image {
+	width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+	box-shadow: none;
+}
+
+.fourbox {
+	margin-top: 50px;
+	line-height: 1.5;
+		border-spacing: 20px;
+	    justify-content: center;
+	    list-style: none;
+	    -ms-box-orient: horizontal;
+	    display: -webkit-box;
+	    display: -moz-box;
+	    display: -ms-flexbox;
+	    display: -moz-flex;
+	    display: -webkit-flex;
+	    display: flex;
+	    -webkit-flex-wrap: wrap;
+	    flex-wrap: wrap;
+}
+
+.fourbox .title {
+	text-align: center;
+		font-size: 140%;
+}
+
+.fourbox li {
+	padding-bottom: 8px;
+}
+
+.fourbox .four_h {
+	width: 300px;
+    display: inline-block;
+        padding: 8px;
+		border: solid 2px #999;
+		border-radius: 8px;
+		padding: 12px;
+		margin: 12px;
+}
+
+/* Slideshow */
+
+.top_spacer {
+	background-color: #000;
+	height: 48px;
+}
+
+.slideshow {
+  overflow:hidden;
+  position: relative;
+  margin: auto;
+  padding-top: 12px;
+  text-align: center;
+  background: black;
+  height: 480px;	
+}
+
+.slide {
+  display: none;
+}
+
+.slide img {
+	max-width: 100%;
+    max-height: 480px;	
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.5s ease;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(1,1,1,0.8);
+}
+
+.slide-text {
+  color: #fff;
+  font-size: 15px;
+  padding: 8px 12px;
+  font-style: italic;
+  bottom: 8px;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@media (max-width: 767px) {
+	.slideshow {
+	  height: 380px;
+	}
+	
+	.box {
+		max-width: inherit;
+		padding: 0px; 
+	}
+    
+    #top_banner {
+        font-size: 70%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    
+    #heading {
+        font-size: 36px;
+    }
+    
+	#subheading {
+		width: 90%;
+        font-size: 20px;
+	}
+	
+
+}

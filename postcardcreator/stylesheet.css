@@ -1,0 +1,129 @@
+body
+{
+	background-color: #777; //55A
+}
+
+
+div#heading
+{
+	font: 24px/32pt "Courier New",monospace !important;
+	
+	
+		position: relative;
+	margin-left: auto;
+	margin-right: auto;	
+	margin-top: 2em;
+	width: 32em;	
+	
+    color: white;
+    background: black;
+   	text-align: center;
+    padding:10px;
+}
+
+div.intro
+{
+	font: 14px/18pt "Courier New",monospace !important;
+	color: black;
+	background: white;
+}
+
+div.reference-title
+{
+	font-weight:bold;
+}
+
+div.quote
+{
+	font-style:italic;
+	margin-left: 90px;
+}
+
+div.employer-title
+{
+	font-weight:bold;
+}
+
+div.employer-desc
+{
+	margin-left: 90px;
+	padding-bottom: 16px;
+}
+
+.box
+	{
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;	
+	margin-top: 2em;
+	padding: 0;
+	text-align: left;
+	width: 38em;	
+	background-color: white;
+	-moz-border-radius-topleft: 6px;
+	-moz-border-radius-topright: 6px;
+	border-radius: 6px; // for Opera
+	}
+ 	
+.content
+	{
+	padding:6px;
+	margin-left:12px;
+	margin-right:12px;
+	}
+
+.h2
+    {
+ 	font: 18px/24pt "Courier New",monospace;   
+    font-weight: bolder;
+    }
+    	
+td
+	{
+	vertical-align:top;
+	padding: 6px;
+	}	
+
+.wrapper {
+    overflow:hidden;
+    width:1400px;
+    padding-bottom: 20px; /* Don't cut off shadow */
+}
+.wrapper div {
+    width:450px;
+}
+.wrapper img {
+    width:40;
+    height:40;
+    float:left;
+    margin:16px 16px 0 0;
+}
+
+img {
+	box-shadow: 3px 3px 5px #888888;
+	padding: 2px
+	}
+	
+.ioswidthcontent {
+	width:640px;
+}
+
+
+/* 3D viewport definitions */
+#viewport {
+z-index:-1;
+    position: fixed;
+		background-color: #227;
+}
+
+.cloudBase {
+	z-index:-1;
+	position: absolute;
+	left: 256px;
+	top: 256px;
+	width: 20px;
+	height: 20px;
+	margin-left: -10px;
+	margin-top: -10px;
+}
+	

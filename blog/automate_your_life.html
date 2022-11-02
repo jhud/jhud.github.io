@@ -1,0 +1,211 @@
+<html xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta property="og:title" content="Automate your life: building your own personal software services" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="http://www.disconnectionist.com/blog/city.jpg" />
+    <meta property="og:url" content="http://www.disconnectionist.com/blog/automate_your_life.html" />
+    <meta property="og:site_name" content="The Disconnectionist - James Hudson's Blog" />
+    <meta property="og:description" content="This post is a guide to building your own software services, to alleviate some of the drudgery of your adult existence." />
+    <meta property="fb:app_id" content="277836282350749" />
+	 <meta charset="UTF-8">
+	<title>Automate your life: building your own personal software services - James Hudson</title>
+	
+	
+	<style type="text/css" media="all">
+		@import "stylesheet.css";
+	</style>
+</head>
+
+<body>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=277836282350749&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<h3><a href="http://www.disconnectionist.com">Home</a> | 2019-11-18 | (c)2019 James Hudson</h3> 
+
+<img src="skyline.jpg" class="flat-image" alt="City skyline">
+
+<p>
+
+<fb:like href="http://www.disconnectionist.com/blog/automate_your_life.html" width="300" layout="standard" action="like" show_faces="true" share="true"></fb:like>
+ 
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<a href="https://twitter.com/JamesSHudson?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @JamesSHudson</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<a href = "http://feed43.com/6737301644655144.xml">RSS Feed</a>
+
+</p>
+
+<h1>Automate your life: rapidly build your own personal software services</h1>
+
+<p>This post is a guide to building your own software services, to alleviate some of the drudgery of your adult existence. I assume you know, or are willing to learn: entry-level coding, plus how to publish a simple web app. I use the Python language in my examples, but you could substitute your own stack of choice.</p>
+	<p>This post is based on my own experiences with personal services; I'm sure there are devops masters out there who have done way more effective automations than me.</p>
+
+<h2>We are not robots</h2>
+
+
+<p>Humans did not evolve to do repetitive, mechanical work; this is a spirit-crushing life for an intelligent hunting and gathering ape. Although the modern world is far from the mechanised hellscape of the early industrial revolution, life still requires some minimal level of drudgery: accounting, paperwork, emailing, shopping lists, reminders, and so on. I also run a business in Germany, which adds an extra shovel-load onto the piles of mindless paperwork. Three months of a freelancer's paperwork burden in Germany is larger than an entire year's worth for a company director in Australia.</p>
+
+<p>I am a programmer, which by definition is somebody who automates things. So why not take that into my personal life, and try to automate some of my more repetitive chores?</p>
+
+<p>Over the last 12 months, I’ve been running an experiment to automate away a lot of the bureaucratic burdens of being a freelancer. I no longer dread tax time, but almost look forward to watching my own creations churn through it for me. I’m spending more time doing valuable work and living life, not wasting time for no benefit.</p>
+
+<p>It's addictive to see how far personal software services can be pushed - the more you systems you build for yourself, the more they amplify each other. My business basically runs itself now; as soon as some paperwork becomes annoying enough to start giving me deja vu, it gets automated.</p>
+
+<h2>We are not robots... except</h2>
+	<img src="lulu_schmidt.jpg" class="footerimage">
+<p>I sometimes perform with the Austrian musician <a href="https://www.facebook.com/luluschmidtberlin/">Lulu Schmidt</a>, and live-animate the light costumes I built for the band. My "Mr Happy" robot LED mask started as something of a joke, but it stuck - literally.</p>
+<p>Usually, I am hunched over my laptop controlling the lights; the most free I could make myself was by roving around with a controller app on my phone. But the last time we performed, we tried driving the light animations via MIDI automation messages from Lulu's audio workstation. The timing of the effects was flawless, and the light show literally ran itself most of the time. However, that left me with barely anything to do on stage except dance and grind: much more natural, interesting, and enjoyable activities for a human. Next time we will be free to do more theatrical stage direction, and not worry about the tedious work of remembering cues and fiddling with laptops.</p>
+<p>Automation made it a much better show, and freed me up to do more interesting things on stage.</p>
+
+
+<h2>Why not use something pre-made?</h2>
+
+<p>People have asked me: 'What about BlahBooks? It does bookkeeping already'. I had a look at some of these existing systems, but there is only so far that they can be personalised. For example, I don't know of any system that could open my browser on the local German tax authority webpage and prefill the numbers, deal with Australian invoices, and also batch generate a bunch of signed documents that my tax advisor suddenly needed.
+
+<h2>Identify the problem points</h2>
+
+<p>If you are a good IT person, you already know that when you find yourself repeating the same actions over and over, you should start thinking about writing a script to do them automatically. Why shouldn’t this logic carry over into everyday life?</p>
+
+<p>Whenever you feel the dread of having to do something yet again, it is time to look for elements of the task which could be automated. One handy tip: if you already need a spreadsheet to keep track of something, it’s probably a good target for supercharging that spreadsheet with more automation. </p>
+
+<p>All of these tasks could potentially be automated: tax declarations, scanning lists looking for overdue invoices, copy/pasting data into emails, printing out invoices, and so on.</p>
+
+<p>Once you have a few pain points identified, it is worthwhile to look for where the tasks cross over. The power of automation is multiplied when the results of one automation step can feed into another. For example, writing invoices is directly related to tax, so your system for making tax declarations could also generate your invoices. </p>
+
+
+<h2>Architecture planning for your services</h2>
+
+<p>Now that you have some ideas of what you could automate, I’ll take you through the steps of designing and building your personal service.</p>
+
+<h3>Separate microservices, or monolithic system?</h3>
+<p>Firstly, you should decide how to divide up the problem into separate modules. “Microservice” is a trendy buzzword, which basically means splitting a service up into several smaller services which communicate between each other via standard web APIs. Quite often, this is a bad idea in practice, but there are some circumstances where it works.</p>
+ 
+<p>Can you break apart the problem into a few separate pieces which share data in a very minimal, clearly defined way? Then this problem could be a good candidate for a microservice architecture.</p>
+
+<p>For example, I have my own graph-drawing microservice. If I ever need to graph some data online, with a few lines of code it’s done. I can forget maintaining my code for rendering graphs, which “just works”, and share it between multiple larger services on very different platforms. I can also host it on a free server and not pay for its resources, and experiment with some different technology stacks that I wouldn’t normally use for a bigger service.</p>
+
+<p>My graph drawing microservice has a very simple API: I pass in simple JSON with graph points and labels, and get back a nice graph which I can embed in the page. It is written in Python using the Flask framework, and uses Pygal for the graph rendering.</p>
+
+<h3>Next: which platform to build it on?</h3>
+<p>The “cloud computing” revolution is old news, so there are plenty of options for getting your services online within minutes. Most “Platform-as-a-Service” plans have a free tier, which you can upgrade for a small monthly cost, usually under $10. They come already set up with SQL databases.</p>
+
+<p>Here are a few I know:</p>
+
+<ul>
+<li><strong>PythonAnywhere.</strong> Run python on the web, with no deployment steps or local development environment needed. Just type python into your browser. Try it out - it’s fun!</li>
+<li><strong>Heroku.</strong> A very well-known PaaS. Use git to deploy with a single push. Relatively expensive, but has a free tier. This is my first choice, because it hides almost all of the deployment details; all you have to thnk about is the code.</li>
+<li><strong>Elastic Beanstalk on Amazon.</strong> This exposes a few more nuts and bolts to the developer, but if you are comfortable with doing more configuration, then you will be glad of the extra power. Cheaper than Heroku: you only pay for the underlying Amazon Web Services.</li>
+<li><strong>Docker containers hosted somewhere.</strong> If you are new to the world of containers, then building your own service could be a way to experiment with them. However, both EB and Heroku both support Django and most other common frameworks out of the box, so containerised deployment is probably overkill for a small service.</li>
+<li><strong>Local scripts.</strong> Maybe you don’t need a web service at all. For example, if you need to generate some tax paperwork once a year, maybe it’s better to input a spreadsheet and generate a bunch of pdfs (weasyprint library in Python) with a script on your desktop machine. This is fine for if something only needs to be done rarely, and doesn’t need constant updating.</li>
+<li><strong>Building an app.</strong> Making a full iOS or Android app just for yourself is probably overkill, but if you buy the excellent Pythonista app for iOS, it becomes a whole lot easier. For a few dollars, you can develop Python “apps” on your iOS device with launch icons on your home screen, which can interact with your APIs. There’s no need to use XCode, or even own a Mac.</li>
+<li><strong>Hotkey macros.</strong> iOS lets you construct powerful macros, and even link them to the Siri voice assistant. Every desktop OS can also replay macros. If you find yourself always typing the same thing, you can automate that on a mini-level with hotkeys. I have one hotkey setup to paste my phone number, and Siri adds things to my shopping list app (which I also made) when I tell her.</li>
+</ul>
+
+<h3>The Database</h3>
+<p>How will your data be structured? Take some time to sketch out the database schema.</p>
+
+<p>Some examples of how real-world things could translate to database objects:</p>
+<ul>
+<li>Invoices (when paid, how much, due date, which tasks were done)</li>
+<li>Tasks (invoices have many tasks, whether sales tax was charged, etc.)</li>
+<li>Customers (addresses, tax numbers). Use this to prefill the invoices.</li>
+<li>Users - make the system multi user so it can scale, even if you think you will only use it yourself. It might also be handy to have different users for different countries or businesses, for example.</li>
+</ul>
+
+<p>Your system should be functional, in the sense of functional programming: store as little state as possible. This reduces storage requirements, the chances of having unsynchronised data, and the possibility for bugs. Do not store pdfs, for example, but generate them as needed from the database. When you email or download pdfs, that email or file can serve as the "definitive" copy for your records.</p>
+
+<h2>Extra considerations</h2>
+
+<p>Now, you are ready to start coding! Once you have the minimal system up and running, there are a few extra considerations which could amplify the power of the system even more:</p>
+
+<h3>Mailers</h3>
+<p>It is really useful to be able to shoot off emails from your system, and it is really easy to add to your code. You can run a task every day, or every hour, with a cron script, to check if some deadline has been met to send an email. You will need an existing email account: a new gmail account with all the security turned off will work in a pinch (just be prepared for Google to shut it down arbitrarily if they decide you are using it for spam), or a mass mailer like sendinblue.com. I had problems with Mailjet, so I cannot recommend it.</p>
+<p>In practice, however, most emails you will want to personalise to some degree, instead of just spamming everyone. I often have an “open email” button in the right place in my web interface, which is just a “mailto:” weblink with prefilled subject and content.</p>
+
+<h3>Generating PDF documents</h3>
+<p>To generate PDF documents in Python, I use jinja HTML templates to first get it looking right in HTML. Then I feed that HTML into the “weasyprint” Python libary, which generates a PDF from the HTML. It can be helpful for debugging to have separate endpoints on your application for HTML and PDF download.</p>
+
+	<img src="automate_sml.jpg" class="footerimage">
+
+<h3>Third Party APIs</h3>
+<p>Lots of progressive web companies are as passionate about inter-operation as you are. If they have a nice REST API, you can connect your service to theirs. For example, Google Docs has an API which lets you feed data directly into your spreadsheets.</p>
+<p>If these services don't have an API, the next best thing is an export function. Your bank website probably has a CSV export option. Failing that, you can always scrape a website using curl and a shell script.</p>
+
+<h3>Share the love</h3>
+<p>Your automation can help others - ask around. Maybe your tax consultant would like your data in a certain format to feed into their own software? Maybe your customers have their own accounting or timesheet APIs that you could connect to directly?</p>
+<p>However, in practice I've found that many traditional businesses do not see the value of automation, even when it doesn't cost them anything. In fact, the idea of automation may actually be hostile to the parts of a large company which are "self-sucking lollipops" (entities which only exist to make more work for itself, in order to justify its own existence).</p> <p>Also, it costs nothing to create extra user accounts, so you could perhaps offer free accounts to your customers, friends, and family.</p>
+
+<h3>Logging</h3>
+<p>Log everything! Databases and disk space are cheap - do not throw away data. Use it for debugging when things go wrong.</p>
+
+<h3>Backups</h3>
+<p>Even though it’s your own data, it would be hugely painful if your automated life vanished into smoke. Regularly pull backups using a cron script. Store them off site. Check regularly that they are being collected. And do not forget  to check you can still open and restore your backups, and that you are not saving empty or corrupted files.</p>
+
+<h3>Scaling</h3>
+<p>If it works for you, other users might want it - it could be the start of a business. I have quite a few of my family and friends on my own system now.</p>
+
+<h3>When not to do it</h3>
+<p>The humble spreadsheet launched the personal computer revolution, and is the backbone of modern business. Billions of dollars of research and development have been invested into it. <a href="https://www.youtube.com/watch?v=QnjmJKMtB7g">People have built first-person shooters in spreadsheets.</a> Chances are, some smart spreadsheet magic, coupled with forms, can solve 90% of your admin problems, without you needing to reinvent the wheel. Spreadsheets stop being optimal when you need complex interactions with users and the outside world, in a time-critical manner, such as sending emails or checking then submitting details through an API.</p>
+
+<h3>Think outside the box!</h3>
+<p>You might begin seeing opportunities for automating things everywhere.</p>
+<p>I went a bit wild this year - I even built my own hardware to integrate with my automation: <a href="https://www.github.com/jhud/hackwatch/">an open source smartwatch</a>. </p>
+<p>A Raspberry Pi can also make a reliable, cheap hardware platform to bring your automation into the physical world.</p>
+<p>You could try making an automatic cryptocurrency trading bot (be aware of the tax implications of this before making it trade real crypto). There's nothing like the feeling of going on holiday, then forgetting that you left an experimental trading bot running at home with your real credit card details.</p>
+
+<h2>In closing</h2>
+
+<img class="sideimage" src="sekt.jpg">
+
+<p>You are a programmer living in a world which is being consumed by the digital; you can use what you already know  about software to make your personal life better. Experiment with how these systems can link together and support each other. And enjoy your extra free time!</p>
+
+<p>Have you built your own personal services? I'd be curious to hear your own ideas and experiences. <a href="mailto:bugs.feedback.whatever@gmail.com">Please email me.</a></p>
+
+
+<fb:like href="http://www.disconnectionist.com/blog/automate_your_life.html" width="300" layout="standard" action="like" show_faces="true" share="true"></fb:like>
+ 
+<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<a href="https://twitter.com/JamesSHudson?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @JamesSHudson</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<a href = "http://feed43.com/6737301644655144.xml">RSS Feed</a>
+
+<hr>
+
+<h3>OTHER POSTS:</h3>
+<table class = "posts">
+<tr><td><img src="transition_tn.jpg"></td><td><a href="its-monday-morning-but-i-dont-have-to-go-to-work-ever-again.html">It's Monday morning, but I don't have to go to work. Ever again.</a> </td></tr>
+<tr><td><img src="city_tn.jpg"></td><td><a href="becoming-a-part-time-superhuman.html">Become a Part-Time Superhuman: Work a 4-Hour-Day</a> </td></tr>
+<tr><td><img src="box_tn.jpg"></td><td><a href="your-life-as-the-perfect-kitchen.html">Adequate is better than more: your life as the perfect kitchen</a> </td></tr>
+<tr><td><img src="funnel_tn.jpg"></td><td><a href="sales.html">This is the Sales Manual you should have been given at graduation</a></td></tr>
+<tr><td><img src="sekt_tn.jpg"></td><td><a href="app-for-free.html">I'll build your app to help you become independent. For free.</a></td></tr>
+<tr><td><img src="city_tn.jpg"></td><td><a href="why-no-fb-killer.html">Why there is no Facebook killer: the death of the P2P dream</a></td></tr>
+<tr><td><img src="berlin_tn.jpg"></td><td><a href="berlin-freelance.html">How to become a freelancer in Berlin: the tricks and the traps</a></td></tr>
+<tr><td><img src="proposal_tn.jpg"></td><td><a href="proposal.html">How to write a proposal they can't refuse</a></td></tr>
+<tr><td><img src="coding_happy_tn.jpg"></td><td><a href="learning_programming.html">Programming basics for everyone: how to try coding right now, and why you need to.</a></td></tr>
+<tr><td><img src="pole_tn.jpg"></td><td><a href="pole_dancing.html">Poledancing versus programming: break away from your business and run it remotely.</a></td></tr>
+<tr><td><img src="city_tn.jpg"></td><td><a href="freelancer_ethics.html">The Freelancer's Code of Ethics: doing good, standing up for yourself, and not burning down the building.</a></td></tr>
+<tr><td><img src="city_tn.jpg"></td><td><a href="beginners_guide_to_cryptocurrency.html">The Beginner's Guide to Cryptocurrency</a></td></tr>
+<tr><td><img src="led_tn.png"></td><td><a href="aesthetics_of_wearable_leds.html">White Paper: from Christmas Tree Lights to Contemporary Art - the
+Aesthetics of Wearable LEDs</a></td></tr>
+<tr><td><img src="city_tn.jpg"></td><td><a href="unfinished_work_is_useless.html">Unfinished Work is Useless: minimising inventory, and the difference between dilettantes and pros - James Hudson</a></td></tr>
+<tr><td><img src="freemoney_tn.png"></td><td><a href="free_money.html">Free money: the lazy person's guide to bad app monetization</a></td></tr>
+<tr><td><img src="automate_tn.png"></td><td><a href="automate_your_life.html">Automate your life: rapidly build your own personal software services - James Hudson</a></td></tr>
+<tr></table></tr>
+<hr>
+
+<h4>Disclaimer</h4>
+<p><i>Needless to say, this blog isn't financial or legal advice, an excuse for getting fired, or promising that any of these ideas will work for you. I really, really, hope that you don't think it is investment advice. The companies or people I mention may not agree with my opinions here. Don't do anything reckless, damaging or hurtful to anyone! In the future you might need your bridges unburnt. (c)2019 James Hudson</i></p>
+
+
+</body>
+</HTML>

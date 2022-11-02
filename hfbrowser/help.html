@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+		<meta name="author" content="James Hudson" />
+		<meta name="keywords" content="app,
+										handsfree hands-free, browser, browsing" />
+		<meta name="description" content="Handsfree Browser" />
+		<meta name="robots" content="all" />
+
+ <meta name="viewport"
+  content="width=device-width,
+  minimum-scale=1.0, maximum-scale=1.0" />
+
+		<title>Handsfree Browser</title>
+		<script type="text/javascript"></script>
+	
+		<style type="text/css" media="all">
+			@import "stylesheet.css";
+		</style>
+	
+	</head>
+
+	<body id="handsfreebrowser">
+	
+
+        <div class="ioswidthcontent">
+             <div class="box">
+                 <div class="content">
+                     <div class="intro" id="help">
+						 <div class="h2">Demo Video</div>
+						 <iframe width="240" height="180" src="https://www.youtube.com/embed/vWI7b9NzQPc?rel=0" frameborder="0" allowfullscreen></iframe>
+
+           
+                         </div>
+                     </div>
+                 </div>
+
+
+		<div class="ioswidthcontent">		
+		<div class="box">	
+			<div class="content">	
+				<div class="intro" id="support">
+		        	<div class="h2">News</div>
+
+					
+					<table>	
+						
+							
+						<TR>
+							<td>
+								2014.08.14 - Over 160 000 downloads of the handsfree apps! Thank you so much for your support. When you buy my apps, it pays my bills, so I have more time to add new features to hopefully make your life that little bit better!<br>
+								</td>
+						</TR>	
+						<TR>
+							<td>
+		2013.07.01 - Do you like the way the browser works? You can now control the music player in the same way with <a href="https://itunes.apple.com/us/app/hands-free-music-gesture-controlled/id667986330">Hands-free Music</a>!<p>
+						</td></tr>
+					</table>
+		        	
+				</div>
+			</div>
+		</div>
+	
+        <div class="ioswidthcontent">
+             <div class="box">
+                 <div class="content">
+                     <div class="intro" id="help">
+						 <div class="h2">Help</div>
+             <ol>
+                 <li>Enter a search term, then navigate normally to the page you want.</li>
+                 <li>Put your device on a motionless surface or in a dock where it is easy to read, and wait until a gray camera view box appears.</li>
+                 <li>The sensitive area of the camera is shown as a white box. Use <b>slow</b> swipes of your hand through this box to move the view. <b>To continue scrolling in the same direction, move your hand out of the white box, bring it round outside of the box, then continue back through the box, in a circular motion.</b>:                                <div align="center" style="margin:20px;">
+                 <img src = "diagram.svg" width="240" height = "240" style="box-shadow:none;"></img></li>
+                 <li>Cook, fix your bike, or whatever.</li>
+                 <li>If you want to navigate by touch, just pick up your device. You can put it down for hands-free use at any time.</li>
+             </ol>
+           
+                         </div>
+                     </div>
+                 </div>
+	
+	
+	<div class="ioswidthcontent">		
+		<div class="box">	
+			<div class="content">	
+				<div class="intro" id="support">
+		        	<div class="h2">Support</div>
+					<p>
+					Computer vision is tricky to get working. Please, if you have any problems using
+					the software, some suggestions for future features, or have found a bug,
+					let me know: <img src = "../images/contact_details.png" style="box-shadow: none;"><br>
+					I want want to make sure the instructions are clear, that the system works in
+					many different situations, and that you find this software
+					practical and a joy to use.
+					<p>
+					<a href="../index.html">Main site</a>
+				</div>
+			</div>
+		</div>
+		
+				<div class="box">	
+			<div class="content">	
+				<div class="intro" id="howitworks">
+		        	<div class="h2">Troubleshooting</div>
+					<p>
+					<b>Some websites run slowly and the motion detection is choppy.</b><br>
+					If you have an older phone (iPhone 4), some websites might load slowly.
+					Rendering webpages and
+					vision processing at the same time is very demanding of the hardware, so try and find
+					a mobile version of the site if possible. You can also use slower gestures.
+					I'll be optimising and improving the algorithms
+					as time goes on, so hopefully this will improve. 
+					<p>
+					<b>The screen keeps bouncing back.</b><br>
+					The sensitive region of the camera is shown inside the white square, so
+					drag your hand through that, then move it out of view of the camera. The
+					action is more circling than a typical scroll gesture.
+					<p>
+					<b>It doesn't work, or says "too fast".</b><br>
+					If the phone is facing at a bright light, it may confuse the
+					camera. Try moving the phone or pointing it away from overhead lights.
+					<p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="box">	
+			<div class="content">	
+				<div class="intro" id="howitworks">
+		        	<div class="h2">How does it work?</div>
+					<p>
+					This software uses the OpenCV library, as used in computer vision and
+					robotics research around the world. It captures single frames from the
+					phone's camera, and then applies filters to the frame to
+					extract meaningful information about movement in the scene. This
+					detected motion is then applied to the scroll position of the web browser.<p>
+					The phone knows when it is being handled, because small motions of
+					the hand cause a change in the phone's acceleration. When the phone is lying still,
+					it enables the motion tracking feature.
+					<p>
+				</div>
+			</div>
+		</div>
+		
+			<div class="box">	
+			<div class="content">	
+				<div class="intro" id="licence">
+		        	<div class="h2">Licence</div>
+					<p>
+					Uses OpenCV software under the BSD Licence:
+					<p>
+					IMPORTANT: READ BEFORE DOWNLOADING, COPYING, INSTALLING OR USING. <br>
+
+By downloading, copying, installing or using the software you agree to this license.<br>
+If you do not agree to this license, do not download, install,<br>
+copy or use the software.<p>
+
+
+                       Intel License Agreement <br>
+               For Open Source Computer Vision Library<p> 
+
+Copyright (C) 2000, 2001, Intel Corporation, all rights reserved.<br>
+Third party copyrights are property of their respective owners. <p>
+
+Redistribution and use in source and binary forms, with or without modification,<br>
+are permitted provided that the following conditions are met:<p>
+
+  * Redistribution's of source code must retain the above copyright notice,<br>
+    this list of conditions and the following disclaimer.<p>
+
+  * Redistribution's in binary form must reproduce the above copyright notice,<br>
+    this list of conditions and the following disclaimer in the documentation<br>
+    and/or other materials provided with the distribution.<p>
+
+  * The name of Intel Corporation may not be used to endorse or promote products<br>
+    derived from this software without specific prior written permission.<p>
+
+This software is provided by the copyright holders and contributors "as is" and<br>
+any express or implied warranties, including, but not limited to, the implied<br>
+warranties of merchantability and fitness for a particular purpose are disclaimed.<br>
+In no event shall the Intel Corporation or contributors be liable for any direct,<br>
+indirect, incidental, special, exemplary, or consequential damages<br>
+(including, but not limited to, procurement of substitute goods or services;<br>
+loss of use, data, or profits; or business interruption) however caused<br>
+and on any theory of liability, whether in contract, strict liability,<br>
+or tort (including negligence or otherwise) arising in any way out of<br>
+the use of this software, even if advised of the possibility of such damage.<p>
+
+					<p>
+						Secure NSUserDefaults <p>
+						Copyright (c) 2011 Matthias Plappert <matthiasplappert@me.com> <p>
+
+						Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.<p>
+
+						THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+				
+				<p>
+					This software uses ASStarRatingView. Copyright (c) 2011 bl0ckme. All rights reserved.
+					<p>
+				
+				</div>
+			</div>
+		</div>
+
+		<div id="extraDiv1"><span></span></div><div id="extraDiv2"><span></span></div><div id="extraDiv3"><span></span></div>
+		<div id="extraDiv4"><span></span></div><div id="extraDiv5"><span></span></div><div id="extraDiv6"><span></span></div>
+</div>
+	</body>
+</html>

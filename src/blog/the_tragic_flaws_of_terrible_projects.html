@@ -1,0 +1,185 @@
+<html xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta property="og:title" content="The Tragic Flaws of Terrible Projects" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="http://www.disconnectionist.com/blog/fire.jpg" />
+    <meta property="og:url" content="http://www.disconnectionist.com/blog/the_tragic_flaws_of_terrible_projects.html" />
+    <meta property="og:site_name" content="The Disconnectionist - James Hudson's Blog" />
+    <meta property="og:description" content="A catalogue of horrible software projects, and the untethered minds that create them." />
+    <meta property="fb:app_id" content="277836282350749" />
+	
+	<title>The Tragic Flaws of Terrible Projects - James Hudson</title>
+	
+	
+	<style type="text/css" media="all">
+		@import "stylesheet.css";
+	</style>
+</head>
+
+<body>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=277836282350749&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<h3><a href="http://www.disconnectionist.com">Home</a> | 2019-01-11 | (c)2019 James Hudson</h3> 
+<img src="fire.jpg" class="flat-image" alt="Campfire">
+
+	<h1>The Tragic Flaws of Terrible Projects - James Hudson</h1>
+	
+<p>
+
+<fb:like href="http://www.disconnectionist.com/blog/the_tragic_flaws_of_terrible_projects.html" width="300" layout="standard" action="like" show_faces="true" share="true"></fb:like>
+ 
+ <a href="https://twitter.com/share" class="twitter-share-button" data-size="large">Tweet</a>
+ <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<a href="https://twitter.com/JamesSHudson" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @JamesSHudson</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<a href = "http://feed43.com/6737301644655144.xml">RSS Feed</a>
+
+</p>
+
+<p>Software is a solved problem: most of the fundamentals were nailed by the early 1960s. Tech projects have highly educated and well-resourced teams.
+	 So why do so many projects degenerate into a mess?
+	Like the spoiler from <i>Soylent Green</i>, the answer is "people".</p>
+<p>Below, I've divided projects into two categories of failure, each with a distinct tragic flaw: the Hamlet and the Macbeth of software architectures. This is quite an 
+	arbitrary distinction, and projects can hit problems for a multitude of reasons. But these two recurring patterns reliably create a feeling of dread and
+	actual nausea like no others I have encountered. They are not just "bad code", but pathological syndromes of some greater institutional illness.
+	Please note that this is pure polemic, and I don't have any numbers to back up my observations.
+	So, let's go!</p>
+
+<h2>Number 1 - the Enterprise Shitpile</h2>
+
+<img src="java.png" class="sideimage">
+
+<p>Lifting the lid on this codebase releases wafts of mouldy carpet, printer toner, and cork ceiling tiles. This smells like Java; the cheap filter coffee of the 90s, and a stuffy corporate programming language of the same era.</p>
+
+<p>The Enterprise Shitpile inherits (no pun intended) the stale overtones of the bureacracy which produced it: long, stuffy, meetings where nothing gets decided, and hazy business goals that address no real need, other than perpetuating their own existence.</p>
+
+<p>Bad Java code is marked by a fetishisation of object orientation: everything revolves around classes and inheritance. Enterprise Shitpile code smells like the worst examples of early Java.</p>
+
+
+<p>A closer look at this code reveals an archetypal <a href="https://steve-yegge.blogspot.com/2006/03/execution-in-kingdom-of-nouns.html">Kingdom of Nouns</a>: multitudes of classes which literally do nothing. They have long names like FactoryConnectorUtilityClassInterface. To understand a single function, you must follow a long line of empty inheritances, to find a tiny fragment of code that affects something in an indirect way on the other side of the codebase.</p>
+
+<h3>Why does code end up like this?</h3>
+
+<p>Premature abstraction is caused by developers without strong leadership. Psychologically, it arises from insecurity: from a fear of the future, and of making decisive architecture decisions. </p>
+
+<p>Taking architecture leadership means taking assertive steps towards writing code that actually does something. For those who are too afraid to do this, the zero-risk option is to create an empty structure, immensely complex and monumental, but dead, motionless, and rigid. They can spend 90% of their time looking busy; writing code which looks complex, but does nothing. That's 90% of the time when they don't have to think about what they are doing, or putting their arse on the line by making some solid architecture decisions.</p>
+
+
+<h3>The solution</h3>
+
+Some advice when you see this antipattern emerging:
+<ul><li>Avoid any inheritance hierarchies which do not make existing code clearer.</li>
+	<li><b>Don't do extra work you are not being paid for.</b> If the customer wants extra changes in the future, they will pay for them. It's almost always better to <b>rewrite</b> compact, concise code in the future, than to maintain a complex inheritance tree that tries to cover every possible future scenario.</li>
+<li>Programmers should be venerated for removing lines of code, not creating them. Simplicity is a virtue.</li>
+</ul>
+
+<h2>Number 2 - the Monster Breeding Lab</h2>
+
+<img src="alien.jpg">
+
+<a href="http://www.alien-covenant.com">From the Alien: Covenant movie. Image from www.alien-covenant.com.</a>
+
+<p>While indecision is the mother of the Enterprise Shitpile, hubris and megalomania is the mother of the Monster Breeding Lab.</p>
+<p>Software developers literally run the world. We can make or break billion-dollar companies. That can be enough to bring out the mad genius in anyone.</p>
+<p>Sometimes, when encountering an existing project, we lift the lid on a twisted kingdom of monstrosities. We find grotesque genetic hybrids, and strange malformed monsters conjured up by an unhinged mind.
+	I know this, because I start sliding into weird coding habits myself if I don't get colleagues to reality check me and critique my work.</p>
+
+<p>Maintaining and refactoring this code is a time-consuming nightmare, as the original developer hasn't considered the perspective of anybody coming after them.</p> 
+
+<h2>Why does code end up like this?</h2>
+
+<p>This is usually the work of a single developer: a “goose who lays golden eggs”, who runs amok without audit, accountability, or organisational oversight.
+	They may be effectively holding management hostage through the level of control and power they have over the business infrastructure, and the lack of transparency
+	they have fostered in their code.</p>
+
+<p>They may even consciously or unconsciously obfuscate code in order to render themselves irreplaceable, and keep sole dominance over their domain.</p>
+
+<p>What does an evil genius do when they have total dominion over a project?</p>
+
+<ul>
+<li>They always use their favourite toolkit or framework, even when it is outdated or completely unsuitable. For example, they use the latest reactive paradigm everywhere and anywhere, on problems that conceptually have nothing to do with event streams. Personally, I need to stop myself using Qt for everything, for no other reason than I have been using it for 20 years. </li>
+<li>They fetishise patterns. They always try to apply their favourite patterns, even when they are unsuitable for solving the problems at hand. They make state machines for stateless systems (I personally have a thing for state machines). They make factories for objects that don't need to be manufactured.
+	They inject dependencies as if they are a dependency junkie. They build Enterprise Shitpiles because it feels like working. When all you have is a hammer, everything looks like a nail. </li>
+<li><a href="https://meblogwritegood.wordpress.com/2011/07/21/28-oh-brother-where-art-thou/">They may have been given free reign to build Homer Simpson's “dream car” on a new project, without oversight or review.</a></li>
+
+
+<li>They take discussion of their ideas and architecture as a personal attack. They are emotionally invested in their own methodologies, which is an undesirable trait when part of an engineering team. </li>
+<li>They do what is fun, not what is needed. Instead of doing something in the clearest, most obvious way,
+	 they smoke a joint and overload some operator in an obscure corner of the code to do something unexpected, because that is <i>so cool.</i></li>
+</ul>
+
+<img src="homer.jpg">
+
+<h3>Solutions</h3>
+
+<p><You are not that hot.</b>We all need to think how we might be falling into these patterns. We love what we do - perhaps sometimes to such an extreme that it becomes an unhealthy attachment to our own way of doing things.</p>
+
+<p><b>Everyone around you has spent a lifetime honing their specific skills.</b> Get advice and listen to it; this is not a sign of ignorance, but of a willingness to learn and strive for the best result possible. Everybody on the team looks good when a project goes well - it's not a contest. Scribble and discuss over a whiteboard until a good solution is obvious to everybody. </p>
+
+<p><b>Write for an audience.</b> Tolstoy, Orwell, and Hemingway show that clear, simple writing is the mark of the true master of communication, and that pseudo-intellectual word salads are the mark of a mediocre writer. <a href="https://en.wikipedia.org/wiki/Plain_English">Always use the programming equivalent of Plain English</a> (unless you are writing bare machine code, perhaps). Your code should explain itself like good literature.</p>
+
+<p><b>Be lazy. Be stupid.</b> This comes naturally to me. Look for the simplest, most obvious solution. Sometimes a simple imperative “for” loop over a dozen items is cleaner than a chain of map/reduce/filter operations or a convoluted SQL query.</p>
+
+<p><b>When hiring:</b> ask yourself if you would want to spend 8 hours per day, 5 days a week for the rest of your working life with this person? Do you imagine working next to them, bouncing ideas and designs off each other? In their job interviews, are they savagely disparaging and dismissing their old teams or ideas they don't agree with? Are they likely to wander off and do their own thing, regardless of what the business needs are?</p>
+
+<p><b>Pair program.</b> Some programmers respond to this request as if you'd asked them to cuddle in a jacuzzi with you. But it works. It's a great way to give your code the benefit of a second opinion, and to pick up new ideas while you are working. You know you really understand something properly if you can explain it.</p>
+
+<h2>In closing</h2>
+
+<p>We now have the technical means to do almost anything we can dream of on this planet. The only problems remaining in the world are organizational, political, personal, and social in nature. Let's try and
+	address these along with the technical issues, so we can make things that work better, by working better together.</p>
+
+
+<p>James Hudson</p>
+
+<p><a href="mailto:bugs.feedback.whatever@gmail.com">If you have any thoughts on this, please email me.</a> Or at least "like" or "share" this post if you think others would appreciate it. </p>
+
+
+<fb:like href="http://www.disconnectionist.com/blog/the_tragic_flaws_of_terrible_projects.html" width="300" layout="standard" action="like" show_faces="true" share="true"></fb:like>
+ 
+ <a href="https://twitter.com/share" class="twitter-share-button" data-size="large">Tweet</a>
+ <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<a href="https://twitter.com/JamesSHudson" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @JamesSHudson</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<a href = "http://feed43.com/6737301644655144.xml">RSS Feed</a>
+
+<hr>
+
+<h3>OTHER POSTS:</h3>
+<table class = "posts">
+<tr><td><img src="transition_tn.jpg"></td><td><a href="its-monday-morning-but-i-dont-have-to-go-to-work-ever-again.html">It's Monday morning, but I don't have to go to work. Ever again.</a> </td></tr>
+<tr><td><img src="city_tn.jpg"></td><td><a href="becoming-a-part-time-superhuman.html">Become a Part-Time Superhuman: Work a 4-Hour-Day</a> </td></tr>
+<tr><td><img src="box_tn.jpg"></td><td><a href="your-life-as-the-perfect-kitchen.html">Adequate is better than more: your life as the perfect kitchen</a> </td></tr>
+<tr><td><img src="funnel_tn.jpg"></td><td><a href="sales.html">This is the Sales Manual you should have been given at graduation</a></td></tr>
+<tr><td><img src="sekt_tn.jpg"></td><td><a href="app-for-free.html">I'll build your app to help you become independent. For free.</a></td></tr>
+<tr><td><img src="city_tn.jpg"></td><td><a href="why-no-fb-killer.html">Why there is no Facebook killer: the death of the P2P dream</a></td></tr>
+<tr><td><img src="berlin_tn.jpg"></td><td><a href="berlin-freelance.html">How to become a freelancer in Berlin: the tricks and the traps</a></td></tr>
+<tr><td><img src="proposal_tn.jpg"></td><td><a href="proposal.html">How to write a proposal they can't refuse</a></td></tr>
+<tr><td><img src="coding_happy_tn.jpg"></td><td><a href="learning_programming.html">Programming basics for everyone: how to try coding right now, and why you need to.</a></td></tr>
+<tr><td><img src="pole_tn.jpg"></td><td><a href="pole_dancing.html">Poledancing versus programming: break away from your business and run it remotely.</a></td></tr>
+<tr><td><img src="city_tn.jpg"></td><td><a href="freelancer_ethics.html">The Freelancer's Code of Ethics: doing good, standing up for yourself, and not burning down the building.</a></td></tr>
+<tr><td><img src="city_tn.jpg"></td><td><a href="the_tragic_flaws_of_terrible_projects.html">The Tragic Flaws of Terrible Projects</a></td></tr>
+<tr></table></tr>
+<hr>
+
+<h4>Disclaimer</h4>
+<p><i>Needless to say, this blog isn't financial or legal advice, an excuse for getting fired, or promising that any of these ideas will work for you. The companies or people I mention may not agree with my opinions here. Don't do anything reckless, damaging or hurtful to anyone! In the future you might need your bridges unburnt. 
+	Images used under fair use, and are copyright their respective owners.</i>
+	(c)2014-2019 James Hudson</i></p>
+
+
+</body>
+</HTML>
+
+

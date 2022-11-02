@@ -1,0 +1,279 @@
+<html xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta property="og:title" content="Migrating your Django app off Heroku, and onto a fresh new (free) Platform-as-a-Service - James Hudson" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="http://www.disconnectionist.com/blog/heroku_migrate/title.jpeg" />
+    <meta property="og:url" content="http://www.disconnectionist.com/blog/getting-django-app-off-heroku.html" />
+    <meta property="og:site_name" content="The Disconnectionist - James Hudson's Blog" />
+    <meta property="og:description" content="Migrating your Django app off Heroku, and onto a fresh new (free) Platform-as-a-Service." />
+    <meta property="fb:app_id" content="277836282350749" />
+	<meta charset="ISO-8859-1">
+	<title>Migrating your Django app off Heroku, and onto a fresh new (free) Platform-as-a-Service - James Hudson</title>
+	
+	
+	<style type="text/css" media="all">
+		@import "stylesheet.css";
+	</style>
+</head>
+
+<body>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v14.0&appId=896766990474152&autoLogAppEvents=1" nonce="rFrIvPtM"></script>
+
+<h3><a href="http://www.disconnectionist.com">Home</a> | 2022-09-07 | (c)2022 James Hudson</h3> 
+
+<h1>Migrating your Django app off Heroku, and onto a fresh new (free) Platform-as-a-Service</h1>
+
+<img src="heroku_migrate/title.jpeg" class="flat-image" alt="Boat">
+
+<h2 id="why_am_i_writing_this">Who is this for?</h2>
+
+<p>Developers who are sad that Heroku no longer offers free tiers, and/or service owners who wince at their monthly bills.</p>
+
+<p>This is a review of the process of migrating Heroku-hosted services onto other "Platform as a Service" (PaaS) providers, and my initial experience with that process.</p>
+
+<p>Django is my preferred platform for most web projects, so that is the specific platform I will discuss.</p>
+
+<p>This article goes into some technical details for developers who are considering migrating an existing Django app from Heroku to another platform.</p>
+
+<h2 id="why_am_i_moving_off_heroku">Why am I moving off Heroku?</h2>
+
+<p>Recently, Heroku, the original "Platform as a Service" company, made an announcement that it was ending its free tier of web service hosting. This killed off my main reason for staying with Heroku, and it seems I am not alone. There has been a flood of blog posts in my search results, such as: "Getting off Heroku", "Heroku alternatives", and "Migrating from Heroku to ...".</p>
+
+<p>Heroku has been a fantastic tool for my freelance business over the last decade, but this was before the Docker revolution. The platform has not really innovated during that time, considering all the deployment options we now have. Heroku's choice to remove their free tier was a deal-breaker.</p>
+
+<p>I am a happily-paying Heroku customer, and I have customers whom I have convinced to use Heroku, but it will no longer be my go-to choice for new projects. Heroku is relatively expensive, and I don&#8217;t want to pay for every single instance of staging servers, experimental projects, small apps, or non-profit services that I might end up doing in the future.</p>
+
+<h2>Reasons to stay on Heroku</h2>
+
+<p>Heroku has been around for ages. There is loads of documentation on every possible configuration. They seem to have included every obscure library you would ever need in their Buildpacks.</p>
+
+<p>There is a huge list of third-party plugins for Heroku. One alternative which I tried did not even have cron, but required a janky extra VM instance which called a cron library.</p>
+
+<p>The alternatives I tried were still under development, with plenty of rough edges and missing functionality which stopped them from being a seamless replacement for Heroku.</p>
+
+<h2 id="why_not_aws_or_own_8220bare_metal8221_server">Why not AWS or own &#8220;bare metal&#8221; server?</h2>
+
+<p>If you are a small team mostly developing Minimal Viable Products, or trying out small projects or experiments, then server maintenance does not add value to your business. Learning the ins and outs of AWS and container management is a job in itself, and can have hidden cost traps. I have found it liberating to outsource the platform work, so I only think about infrastructure at the abstraction level of git and above.</p>
+
+<h2 id="contenders_at_a_glance">The contenders</h2>
+
+<p>I decided to put some small, unimportant services on each platform as a test. This is my experience of doing the minimal setup possible to migrate these couple of services from Heroku. I did not dig deeply into any of the PaaSs, so please don&#8217;t consider this an in-depth review. </p>
+
+<p>On Railway.app I installed a service that includes PDF export (using the Weasyprint library) and additional binary library packages. This makes it more complicated to deploy than the average Django CRUD/CMS.</p>
+
+<p>On Fly.io I installed a simple REST API and CMS for an app.</p>
+
+<p>I have not had enough time to see how they perform over time with these real services, or what the long-term costs would look like.</p>
+
+<h3 id="my_very_non_scientific_ratings">My very non-scientific ratings</h3>
+
+<ul>
+<li><b>Ease of setup</b> - how easy was it to migrate a Django app from Heroku.</li>
+<li><b>Value </b>- what you get for nothing, and how much sense their pricing scheme makes</li>
+<li><b>UI </b>- how nice does the dashboard look</li>
+<li>Cleanliness </b>- how it left my codebase. Did I need any weird config files, or need to hack anything to get it to work on the new platform?</li>
+<li><b>CLI</b> - how easy is it to use a Command Line Interface to manage the service </li>
+<li><b>Database migration</b> - how easy is it to pull the old data across from Heroku.</li>
+</ul>
+
+<h4>Railway.app</h4>
+<a href="https://railway.app">https://railway.app</a>
+
+<ul>
+ <li> <b>Ease of setup: (4/5)</b> the new Nixpacks system would not work for me, but the legacy Buildpacks option worked flawlessly "out of the box". I give this 5/5 with the power of hindsight: if I'd gone straight to Buildpacks and ignored Nixpacks. Nixpacks looks promising, but the base Docker image seemed to be lacking a lot of basic libraries, and I don't have time right now to learn the intricacies of a new packaging tech.</li>
+ <div style="margin-left:2em;">
+ 	<img src="heroku_migrate/buildpacks.png"><br>
+ 	<i>Tick this, and save yourself a world of dependency hell.</i>
+ </div>
+ 
+	<li><b> Value: (5/5)</b> "free"<sup>*</sup> for small instances. Very attractive "postpaid" payment option, plus $5 credit per month for free. Buy more credits as you exceed that $5 limit; or if you trust that you will not have a DoS attack, there is also an automatic payment potion. <sup>*</sup> Note that if you don't put in your credit card details, you will only have a very limited 500 excution hours per month, which effectively means that your services will be down part of the time. But you can buy a one-time $5 credit to remove this limit.</li>
+  <li><b>UI (5/5)</b> dashboard with beautiful overview of your infrastructure</li>
+ <li> <b>Cleanliness: (5/5)</b> lots of instrumentation, and easy to follow what is going on: better than it was on Heroku. Didn&#8217;t add any extra weird config files to my git repo.</li>
+  <li><b> CLI: (4/5)</b> easy to do everything on the CLI, but the dashboard is so slick you will not mind doing things in either. Automatic deploy from GitHub means you get CI without any action.</li>
+  <li><b> Database migration: (5/5)</b> Just worked exactly like my old Heroku instance, after a few lines of shell script.</li>
+</ul>
+
+
+
+
+<p>Also note:
+<ul>
+ <li> No cron job - you need to make a new small instance and run code there.
+	This is straightforward to setup, and it arguably makes a lot of sense to have everything work with the same "git + deployed instance" philosophy.</p>
+</li>
+<li>It is still under very active development. On the positive side, they have excellent community support, with regular updates and feature additions, and opportunity to give feedback. On the other hand, I don't feel quite ready to trust existing commercial projects to such a new compan just yet; trust is earned in drops, but lost in buckets.</li>
+</ul>
+
+<h4>Fly.io</h4>
+<a href="https://fly.io">https://fly.io</a>
+<ul>
+   <li> <b>Ease of setup: (2/5)</b> 2 hours of messing with database connections, manually copy/pasting SQL commands into a terminal</li>
+   <li> <b>Value: (5/5)</b> 3 very small VMs of 256MB to configure how you want. These need to include database space. </li>
+   <li> <b>UI: (3/5)</b> dashboard does the job, but is nothing special</li>
+   <li> <b>Cleanliness: (2/5)</b> the database migration was not 100% perfect, and some data was lost. My Fly.io deployment and setup feels jankier than Railway. I am sunsetting this service, and so will probably not want to touch it again or poke around inside Fly.io, as long as it is still running. +1 point for generating a normal, clean Dockerfile as part of the build process.</li>
+   <li> <b>CLI: (5/5)</b> easy to do everything you need on the CLI, so you don&#8217;t even need to touch the bare-bones dashboard.</li>
+   <li> <b>Database migration: (1/5)</b> I barely managed it; it took a lot of hackery and ssh/command line black magic.</li>
+</ul>
+
+<p>Also note:
+	<ul>
+  <li> Really nice command line quiz to set up databases, instances etc. Just asks you questions.
+  <li> Secrets are really secret - bonus points for security.</p>
+</ul>
+
+<h2 id="nope">Nope: the alternatives that didn't make the cut</h2>
+
+<h3>OpenShift</h3>
+
+  I did try openshift years ago, but they made their lowest tier more expensive than Heroku.
+
+
+<h3>Heroku</h3>
+  No free tier as of November 2022.
+
+<h3>Render</h3>
+
+Free tier database wipes every 3 months, making it unusable for any real project.
+
+<h2 id="code_snippets">Code snippets</h2>
+
+<p>These might help you with your own migration:</p>
+
+<h3 id="export_old_database_from_heroku">Export old database from Heroku</h3>
+
+<p>Run this code from your local machine to export your old Heroku database</p>
+
+<p><code>
+	heroku login<br>
+	heroku run 'pg_dump $DATABASE_URL' &gt; backup.sql --app &lt;your app name&gt;
+</code></p>
+<p>Note that $DATABASE_URL will be filled by the Heroku environment, so type it as is here.</p>
+
+<h3 id="railwayapp">railway.app</h3>
+
+<p>Import database dump into railway.app:</p>
+
+<p>(Copy/paste the from Railway&#8217;s PostgreSQL/Connect dashboard and add the -f backup.sql at end)
+PGPASSWORD=<PGPASSWORD from the copy paste> psql -h <PGHOST> -U <PGUSER> -p <PGPORT> -d <PGDATABASE> -f heroku_backup.sql </p>
+
+<div style="margin-left:2em;">
+	<img src="heroku_migrate/connect_db.png"><br>
+	<i>This might be a bit of an unneccesary security hole, but it sure is convenient.</i>
+</div>
+
+
+<h3 id="flyio">Fly.io</h3>
+
+<h4 id="deploy">Deploy</h4>
+
+<p>Had some issues deploying - needed to use this line for deploy to use my local Docker daemon:</p>
+
+<p><code>
+ flyctl deploy --verbose --local-only
+</code></p>
+
+<h4 id="import_database">Import database</h4>
+
+<p>I needed to open a local proxy to the database:</p>
+
+<p><code>
+flyctl proxy 5400:5432 -a name—of-app-db
+</code></p>
+
+<p>And then do my migration manually by </p>
+
+<p><code>
+flyctl ssh console -a &lt;app name&gt;
+python manage.py migrate
+</code></p>
+
+<p>Then manually copy/pasting the important data from the SQL dump into a Postgres shell.</p>
+
+<p><code>
+flyctl postgres connect -a  < app name >-db</code></p>
+
+<p>Then something like:</p>
+
+<p><code>postgres=# COPY < table > (id, school<em>id, classtype</em>id) FROM stdin;
+Enter data to be copied followed by a newline.
+End with a backslash and a period on a line by itself, or an EOF signal.</p>
+
+
+  <p>24   24  5
+  <p>29   63  5
+  <p>32   30  5
+  <p>  35   72  5
+  <p>36   61  5
+  <p>37   77  5
+</code></p>
+
+
+	<h2><b style="color: green">Overall winner`: Railway.app</b></h3>
+<a href="https://railway.app">https://railway.app</a>
+	
+	<p>
+		The effortless setup, true "free" tier, attractive pricing, good support, and beautiful dashboard, make this a clear winner for my small projects.
+		However, it's still a new service, so I'll see how it runs for a while on my small projects before I host any commercial projects there. 
+	</p>
+
+	
+<h2 id="summary">Summary</h2>
+
+<p>Both Railway and Fly gave me a few genuine moments of thinking: "wow, that is really cool", as I was setting them up. Perhaps they still have some rough edges, but I'm excited by their potential. Railway feels closer to the ideal of "just show it some code, and the service is running".</p>
+
+<p>Perhaps Render is still worth it despite the lack of a proper free tier. But I'm not paying for my staging servers, experiments, or apps with miniscule user bases, when there are excellent free options out there.</p>
+
+<p>I'll continue paying Heroku for my existing commercial services, but it will no longer be my go-to PaaS for new projects. As my Heroku projects scale, I'll migrate them too, for the added features and lower costs elsewhere.</p>
+
+<p>In closing, I would say that us small developers are spoiled for choice; we just have so many interesting options.</p>
+
+<p>James Hudson</p>
+
+<p><a href="mailto:bugs.feedback.whatever@gmail.com">If you have any thoughts on this, please email me.</a> Or at least "like" or "share" this post if you think others would appreciate it. </p>
+
+
+
+ 
+ <a href="https://twitter.com/share" class="twitter-share-button" data-size="large">Tweet</a>
+ <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<a href="https://twitter.com/JamesSHudson" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @JamesSHudson</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+<fb:like href="http://www.disconnectionist.com/blog/getting-django-app-off-heroku.html" width="300" layout="standard" action="like" show_faces="true" share="true"></fb:like>
+
+<a href = "http://feed43.com/6737301644655144.xml">RSS Feed</a>
+
+<hr>
+
+<h3>OTHER POSTS:</h3>
+<table class = "posts">
+<tr><td><img src="transition_tn.jpg"></td><td><a href="its-monday-morning-but-i-dont-have-to-go-to-work-ever-again.html">It's Monday morning, but I don't have to go to work. Ever again.</a> </td></tr>
+<tr><td><img src="city_tn.jpg"></td><td><a href="becoming-a-part-time-superhuman.html">Become a Part-Time Superhuman: Work a 4-Hour-Day</a> </td></tr>
+<tr><td><img src="box_tn.jpg"></td><td><a href="your-life-as-the-perfect-kitchen.html">Adequate is better than more: your life as the perfect kitchen</a> </td></tr>
+<tr><td><img src="funnel_tn.jpg"></td><td><a href="sales.html">This is the Sales Manual you should have been given at graduation</a></td></tr>
+<tr><td><img src="sekt_tn.jpg"></td><td><a href="app-for-free.html">I'll build your app to help you become independent. For free.</a></td></tr>
+<tr><td><img src="city_tn.jpg"></td><td><a href="why-no-fb-killer.html">Why there is no Facebook killer: the death of the P2P dream</a></td></tr>
+<tr><td><img src="berlin_tn.jpg"></td><td><a href="berlin-freelance.html">How to become a freelancer in Berlin: the tricks and the traps</a></td></tr>
+<tr><td><img src="proposal_tn.jpg"></td><td><a href="proposal.html">How to write a proposal they can't refuse</a></td></tr>
+<tr><td><img src="coding_happy_tn.jpg"></td><td><a href="learning_programming.html">Programming basics for everyone: how to try coding right now, and why you need to.</a></td></tr>
+<tr><td><img src="pole_tn.jpg"></td><td><a href="pole_dancing.html">Poledancing versus programming: break away from your business and run it remotely.</a></td></tr>
+<tr><td><img src="city_tn.jpg"></td><td><a href="freelancer_ethics.html">The Freelancer's Code of Ethics: doing good, standing up for yourself, and not burning down the building.</a></td></tr>
+<tr><td><img src="city_tn.jpg"></td><td><a href="the_tragic_flaws_of_terrible_projects.html">The Tragic Flaws of Terrible Projects</a></td></tr>
+<tr><td><img src="city_tn.jpg"></td><td><a href="getting-django-app-off-heroku.html">Migrating your Django app off Heroku, and onto a fresh new (free) Platform-as-a-Service</a></td></tr>
+<tr></table></tr>
+<hr>
+
+<h4>Disclaimer</h4>
+<p><i>Needless to say, this blog isn't financial or legal advice, an excuse for getting fired, or promising that any of these ideas will work for you. The companies or people I mention may not agree with my opinions here. Don't do anything reckless, damaging or hurtful to anyone! In the future you might need your bridges unburnt. 
+	Images used under fair use, and are copyright their respective owners.</i>
+	(c)2014-2019 James Hudson</i></p>
+
+
+</body>
+</HTML>
+
+
