@@ -9,7 +9,7 @@
     <meta property="og:site_name" content="The Disconnectionist - James Hudson's Blog" />
     <meta property="og:description" content="{{ self.title() }}" />
     <meta property="fb:app_id" content="277836282350749" />
-	<meta charset="ISO-8859-1">
+	<meta charset="utf-8">
     <meta name="description" content="{% block page_description %}Blog post about setting up as a freelancer in Berlin and Germany.{% endblock %}">
     <meta name="keywords" content="{% block metatags %}Berlin,freelancing,freelancer,expat,steuerberater,invoice,template invoice,German,software development,German invoice template{% endblock %}">
 
@@ -22,11 +22,22 @@
 </head>
 
 <body>
-
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v14.0&appId=896766990474152&autoLogAppEvents=1" nonce="rFrIvPtM"></script>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0&appId=277836282350749&autoLogAppEvents=1" nonce="fbDnfKLj"></script>
 
 <h3><a href="http://www.disconnectionist.com">Home</a> | {% block publish_date %}{% endblock %} | © James Hudson</h3> 
+
+
+ 
+<a href="https://twitter.com/share" class="twitter-share-button" data-size="large">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<a href="https://twitter.com/JamesSHudson" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @JamesSHudson</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<div class="fb-like" data-href="https://www.disconnectionist.com/blog/{{ self.page_url() }}" data-width="300" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+
+<a href = "http://feed43.com/6737301644655144.xml">RSS Feed</a>
 
 <h1>{{ self.title() }}</h1>
 
@@ -47,8 +58,7 @@
 <a href="https://twitter.com/JamesSHudson" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @JamesSHudson</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
-
-<fb:like href="http://www.disconnectionist.com/blog/{{ self.page_url() }}" width="300" layout="standard" action="like" show_faces="true" share="true"></fb:like>
+<div class="fb-like" data-href="https://www.disconnectionist.com/blog/{{ self.page_url() }}" data-width="200" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
 
 <a href = "http://feed43.com/6737301644655144.xml">RSS Feed</a>
 
