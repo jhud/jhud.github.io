@@ -1,4 +1,5 @@
 """ Build a static website using Jinja templates. (c)2022 James Hudson. All rights reserved.
+    This code is licensed under GPL v3.
     Let me know if you are interested in  using this yourself! """
 
 import glob

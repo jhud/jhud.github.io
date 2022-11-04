@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+    <meta property="og:title" content="Totally free website hosting with GitHub Pages + script magic - James Hudson" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="http://www.disconnectionist.com/blog/freemoney_header.jpg" />
+    <meta property="og:url" content="http://www.disconnectionist.com/blog/free_page_hosting.html" />
+    <meta property="og:site_name" content="The Disconnectionist - James Hudson's Blog" />
+    <meta property="og:description" content="Totally free website hosting with GitHub Pages + script magic" />
+    <meta property="fb:app_id" content="277836282350749" />
+	<meta charset="utf-8">
+    <meta name="description" content="f you are younger than me, the word “Geocities” might mean nothing. It’s 2022: surely there is still some corner of the internet to put up a modest static webpage for free?">
+    <meta name="keywords" content="github pages,static hosting,hosting,webpage,python,CMS,jekyll,template,jinja">
+
+	<title>Totally free website hosting with GitHub Pages + script magic</title>
+	
+	
+	<style type="text/css" media="all">
+		@import "stylesheet.css";
+	</style>
+</head>
+
+<body>
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0&appId=277836282350749&autoLogAppEvents=1" nonce="fbDnfKLj"></script>
+
+<h3><a href="http://www.disconnectionist.com">Home</a> | 2022-11-04 | © James Hudson</h3> 
+
+
+ 
+<a href="https://twitter.com/share" class="twitter-share-button" data-size="large">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<a href="https://twitter.com/JamesSHudson" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @JamesSHudson</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<div class="fb-like" data-href="https://www.disconnectionist.com/blog/free_page_hosting.html" data-width="300" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+
+<a href = "http://feed43.com/6737301644655144.xml">RSS Feed</a>
+
+<h1>Totally free website hosting with GitHub Pages + script magic</h1>
+
+<img src="freemoney_header.jpg" class="flat-image">
+
+
+
+<p>Long, long ago, having a personal website was the norm. If you are younger than me, the word “Geocities” might mean nothing. It’s 2022: surely there is still some corner of the internet to put up a modest static webpage for free?</p>
+
+<p>We have also learned a lot as developers in the intervening years. Can we add some modern conveniences to make our static website work smoother?</p>
+
+<p>This blog post itself serves as an example of how to combine the content generation power of a backend, with the benefits of static hosting.</p>
+
+<h2 id="who_is_this_for">Who is this for?</h2>
+
+<p>You are a frontend web developer or designer who wants a free website, and is fine with tweaking some scripts and HTML.</p>
+
+<p>Or if you are a layperson who just really, really wants a free website, you could also follow along, and maybe learn a bit about web templates and scripting.</p>
+
+<p>This blog post is dedicated to those who love Python. If you don&#8217;t know the language and libraries, then I&#8217;d recommend using a different toolkit mentioned below. I have used Python for this site and all my examples, but the same concepts should hold for your language of choice if you want to build something similar.</p>
+
+<p>You might already have a static website, or a full CMS with a bunch of templates which you want to easily migrate to a cheaper server.</p>
+
+<h2 id="why_have_a_static_website">Why have a static website?</h2>
+
+<p>For many websites, there is no need to change the content very often. A Content Management System (CMS) such as Wordpress or Django is overkill. All you need to do is send some HTML to the user.</p>
+
+<p>One huge plus for static websites is security: my static site has stood strong for decades with zero maintenance, without needing libraries to be updated. Whilst a billion Wordpress sites have inevitably fallen to hackers, like wheat at harvest time.</p>
+
+<p>My personal website has been useful for finding work over the years. There is nothing like having your own permanent home on the internet, which you can print on a business card, or send people a link to.</p>
+
+<p>It’s also useful to be able to easily host your own files online: as test data for some project you are developing; or for providing downloadable content, such as Terms and Conditions or file packs for apps you are building.</p>
+
+<h2 id="moving_beyond_the_pain_of_raw_html">Moving beyond the pain of raw HTML</h2>
+
+<p>I have been hand-writing all the HTML on this blog for about a decade, since I saw no need to set up a CMS service, and I didn’t want to pay for hosting, or for my page to be covered in ads.</p>
+
+<p>But as the amount of my content has grown, it has become a significant task to maintain. For example, the “share” widgets need to be updated when their APIs change. I created a lot of bugs and broken links from copy/pasting from old articles.</p>
+
+<h2 id="thank_you_github_pages_free_page_hosting">Thank you GitHub Pages: free page hosting!</h2>
+
+<p>A friend was hosting my page, but a couple of years ago I decided to move my webpage to GitHub Pages, which is a totally free hosting service.</p>
+
+<p>I am very happy with GitHub Pages, and it’s very easy to setup. You can setup your page right now:</p>
+
+<p><a href="https://pages.github.com">https://pages.github.com</a></p>
+
+<p>However, I missed the features of a CMS, such as being able to use templates. It felt wrong to be constantly copy/pasting the same HTML around. Surely there must be a way to add some server-side processing?</p>
+
+<p>Nope. It’s static pages only. I thought about running client-side Javascript to generate the page dynamically in the browser. But I didn&#8217;t want to completely destroy my page&#8217;s ability to be indexed by search engines - customers have found me via Google in the past.</p>
+
+<p>Then I had the bright idea of using a script to generate raw HTML from some offline templates, and uploading the raw HTML generated files to GitHub Pages. It turns out someone has already done that much better than I ever would have. It’s a toolkit called Jekyll.</p>
+
+<h2 id="using_jekyll_or_not">Using Jekyll. Or not.</h2>
+
+<p><a href="https://jekyllrb.com">https://jekyllrb.com</a></p>
+
+<p>Jekyll is officially supported by GitHub as a plugin. It compiles down your website source files into a polished static website, ready to be pushed to GitHub.</p>
+
+<p>It already does all that I need, plus much more: it comes with themes, navigation logic, and conversion of markdown notation to HTML.</p>
+
+<h3 id="so_why_not_use_this">So why not use this?</h3>
+
+<p>Because I don’t want to learn some new languages and tools just to maintain my website.</p>
+
+<p>And I also like “rolling my own”, and reinventing the wheel - it’s fun. </p>
+
+<p>Jekyll uses a stack of Ruby and YAML, and custom markup. I have never needed to learn these things. I would ideally be able to use Python and Jinja templates, just like I do on my beloved Django/Flask + Python stack of choice.</p>
+
+<h2 id="what_have_i_done_here">What have I done here?</h2>
+
+<p>I have written a simple script to make a static website &#8220;feel&#8221; like a dynamic website, with many of the conveniences and powerful tempalting features of a CMS. I can use templates, Python, and any other processing and compiling I want to do. All those source files will be compiled down to a completely static website.</p>
+
+<h2 id="how_it_works">How it works</h2>
+
+<p>You can follow along with the source for this site here: <a href="https://github.com/jhud/jhud.github.io">https://github.com/jhud/jhud.github.io</a>. All the templates and logic live in the github.io repository, along with the main website that you are reading now. No promises that my approach will be particularly portable or adaptable to general cases.</p>
+
+<p>jhud.github.io is a synonym for my custom domain <a href="https://www.disconnectionist.com">www.disconnectionist.com</a>. So my entire website, plus the means to generate it, are all stored in the one git repository.</p>
+
+<p>The folder structure looks like this:</p>
+
+<p><code>
+jhud.github.io<br>
+..all my website files, images etc.<br>
+..index.html<br>
+..src<br>
+....any HTML templates for the website<br>
+..scripts<br>
+....build_static_site.py<br>
+</code></p>
+
+<p>That <code>build_static_site.py</code> script is the key to everything: it is a Python script which runs the Jinja2 templating library over everything in the src folder. This is the templating system I use for Flask or Django websites, to avoid needing to commit heinous DRY sins such as copy/pasting the same header and footer into every web page.</p>
+
+<p>Whenever I update my templates, I run the <code>build_static_site.py</code> script, and it searches the <code>src</code> folder for HTML files. It applies Jinja templating to all the HTML files that it finds.</p>
+
+<p>Then I do a git commit + push to github.</p>
+
+<p>The nice part about Jinja is that if you have no template tags in your HTML (i.e. it is just plain HTML), then Jinja will just output the original file. So you can drag your existing static HTML website to the &#8220;src&#8221; folder, and replace pieces of boilerplate header and footer with Jinja templates at your leisure.</p>
+
+<p>There is one extra trick here. We don&#8217;t want to generate website HTML from our base Jinja template HTML files; they are purely for generating other pages, and so should never appear on the main page. So the base template files get the special prefix %, which tells the script not to copy them across to the final webpage folder.</p>
+
+<p>When we run the script, all the final HTML files generated from the templates are copied down to the root of the jhud.github.io folder, ready to be viewed on the actual webpage. The files replace whatever was there before, leaving images and other files in the bsae folder intact.</p>
+
+<p>Git commit + push to GitHub takes care of the versioning for us, so that only the files actually changed by the script will be uploaded to GitHub to be served.</p>
+
+<p>It usually only takes about 20 seconds after a git push for the new content to go live.</p>
+
+<h2 id="your_domain_name_the_not_free_part">Your domain name: the not-free part</h2>
+
+<p>You will get a free website at <yourname>.github.io. Github is far from an embarrassing domain for a developer to have, but you might want your own custome domain name, like www.disconnectionist.com</p>
+
+<p>You will need to buy this from one of the usual providers, and then you can link it to GitHub. <a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site">Instructions here</a></p>
+
+<h2 id="future_expansion">Future expansion</h2>
+
+<p>I slightly prefer using Markdown to HTML, so it&#8217;s an obvious choice to add a Markdown-to-HTML conversion step in my script. This post was written in Markdown, but I did the conversion in a manual step this time.</p>
+
+<p>It would also be nice to automatically create an RSS feed and &#8220;other stories&#8221; from the directory listing of my blog, and also to generate HTML lists from json on the main page, for things like &#8220;news&#8221;.</p>
+
+<p>As I add even more content to my site and start finding the process of maintaining it painful, I&#8217;ll keep adding extra functionality to this script.</p>
+
+<p>This system isn&#8217;t limited to GitHub Pages: it can be transferred to any place where static files can be hosted.</p>
+
+<h2 id="in_summary">In summary</h2>
+
+<p>This little project puts a warm glow in my heart: not only have I got something for free, but I have also automated some tedious tasks out of my life for good.</p>
+
+<p>Hopefully it can help you to setup your own static website a bit more conveniently.</p>
+
+
+
+<p>James Hudson</p>
+
+<p><a href="mailto:bugs.feedback.whatever@gmail.com">If you have any thoughts on this, please email me.</a> Or at least "like" or "share" this post if you think others would appreciate it. </p>
+
+
+
+ 
+ <a href="https://twitter.com/share" class="twitter-share-button" data-size="large">Tweet</a>
+ <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<a href="https://twitter.com/JamesSHudson" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @JamesSHudson</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<div class="fb-like" data-href="https://www.disconnectionist.com/blog/free_page_hosting.html" data-width="200" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
+
+<a href = "http://feed43.com/6737301644655144.xml">RSS Feed</a>
+
+<hr>
+
+<h3>OTHER POSTS:</h3>
+<table class = "posts">
+<tr><td><img src="transition_tn.jpg"></td><td><a href="its-monday-morning-but-i-dont-have-to-go-to-work-ever-again.html">It's Monday morning, but I don't have to go to work. Ever again.</a> </td></tr>
+<tr><td><img src="city_tn.jpg"></td><td><a href="becoming-a-part-time-superhuman.html">Become a Part-Time Superhuman: Work a 4-Hour-Day</a> </td></tr>
+<tr><td><img src="box_tn.jpg"></td><td><a href="your-life-as-the-perfect-kitchen.html">Adequate is better than more: your life as the perfect kitchen</a> </td></tr>
+<tr><td><img src="funnel_tn.jpg"></td><td><a href="sales.html">This is the Sales Manual you should have been given at graduation</a></td></tr>
+<tr><td><img src="sekt_tn.jpg"></td><td><a href="app-for-free.html">I'll build your app to help you become independent. For free.</a></td></tr>
+<tr><td><img src="city_tn.jpg"></td><td><a href="why-no-fb-killer.html">Why there is no Facebook killer: the death of the P2P dream</a></td></tr>
+<tr><td><img src="berlin_tn.jpg"></td><td><a href="berlin-freelance.html">How to become a freelancer in Berlin: the tricks and the traps</a></td></tr>
+<tr><td><img src="proposal_tn.jpg"></td><td><a href="proposal.html">How to write a proposal they can't refuse</a></td></tr>
+<tr><td><img src="coding_happy_tn.jpg"></td><td><a href="learning_programming.html">Programming basics for everyone: how to try coding right now, and why you need to.</a></td></tr>
+<tr><td><img src="pole_tn.jpg"></td><td><a href="pole_dancing.html">Poledancing versus programming: break away from your business and run it remotely.</a></td></tr>
+<tr><td><img src="city_tn.jpg"></td><td><a href="freelancer_ethics.html">The Freelancer's Code of Ethics: doing good, standing up for yourself, and not burning down the building.</a></td></tr>
+<tr><td><img src="city_tn.jpg"></td><td><a href="the_tragic_flaws_of_terrible_projects.html">The Tragic Flaws of Terrible Projects</a></td></tr>
+<tr><td><img src="city_tn.jpg"></td><td><a href="getting-django-app-off-heroku.html">Migrating your Django app off Heroku, and onto a fresh new (free) Platform-as-a-Service</a></td></tr>
+<tr></table></tr>
+<hr>
+
+<h4>Disclaimer</h4>
+<p><i>Needless to say, this blog isn't financial or legal advice, an excuse for getting fired, or promising that any of these ideas will work for you. The companies or people I mention may not agree with my opinions here. Don't do anything reckless, damaging or hurtful to anyone! In the future you might need your bridges unburnt. 
+	Images used under fair use, and are copyright their respective owners.</i>
+	© 2014-2022 James Hudson</i></p>
+
+
+</body>
+</HTML>
+
+
