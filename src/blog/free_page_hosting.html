@@ -92,7 +92,7 @@ jhud.github.io<br>
 ....build_static_site.py<br>
 </code></p>
 
-<p>That <code>build_static_site.py</code> script is the key to everything: it is a Python script which runs the Jinja2 templating library over everything in the src folder. This is the templating system I use for Flask or Django websites, to avoid needing to commit heinous DRY sins such as copy/pasting the same header and footer into every web page.</p>
+<p>That <a href="https://github.com/jhud/jhud.github.io/blob/main/scripts/build_static_site.py">build<em>static</em>site.py</a> script is the key to everything: it is a Python script which runs the Jinja2 templating library over everything in the src folder. This is the templating system I use for Flask or Django websites, to avoid needing to commit heinous DRY sins such as copy/pasting the same header and footer into every web page.</p>
 
 <p>Whenever I update my templates, I run the <code>build_static_site.py</code> script, and it searches the <code>src</code> folder for HTML files. It applies Jinja templating to all the HTML files that it finds.</p>
 

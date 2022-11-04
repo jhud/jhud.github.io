@@ -3,7 +3,7 @@
 {% block title_img %}freemoney_header.jpg{% endblock %}
 {% block page_url %}free_page_hosting.html{% endblock %}
 {% block publish_date %}2022-11-04{% endblock %}
-{% block page_description %}f you are younger than me, the word “Geocities” might mean nothing. It’s 2022: surely there is still some corner of the internet to put up a modest static webpage for free?{% endblock %}
+{% block page_description %}If you are younger than me, the word “Geocities” might mean nothing. It’s 2022: surely there is still some corner of the internet to put up a modest static webpage for free?{% endblock %}
 {% block metatags %}github pages,static hosting,hosting,webpage,python,CMS,jekyll,template,jinja{% endblock %}
 
 {% block content %}
@@ -102,7 +102,7 @@ jhud.github.io
     build_static_site.py
 ```
 
-That ```build_static_site.py``` script is the key to everything: it is a Python script which runs the Jinja2 templating library over everything in the src folder. This is the templating system I use for Flask or Django websites, to avoid needing to commit heinous DRY sins such as copy/pasting the same header and footer into every web page.
+That [build_static_site.py](https://github.com/jhud/jhud.github.io/blob/main/scripts/build_static_site.py) script is the key to everything: it is a Python script which runs the Jinja2 templating library over everything in the src folder. This is the templating system I use for Flask or Django websites, to avoid needing to commit heinous DRY sins such as copy/pasting the same header and footer into every web page.
 
 Whenever I update my templates, I run the ```build_static_site.py``` script, and it searches the ```src``` folder for HTML files. It applies Jinja templating to all the HTML files that it finds.
 
@@ -116,7 +116,7 @@ When we run the script, all the final HTML files generated from the templates ar
 
 Git commit + push to GitHub takes care of the versioning for us, so that only the files actually changed by the script will be uploaded to GitHub to be served.
 
-It usually only takes about 20 seconds after a git push for the new content to go live.
+It usually takes a minute or two after a ```git push``` for the new content to go live.
 
 
 ## Your domain name: the not-free part
