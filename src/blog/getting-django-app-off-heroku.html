@@ -1,31 +1,12 @@
-<html xmlns:fb="http://ogp.me/ns/fb#">
-<head>
-    <meta property="og:title" content="Migrating your Django app off Heroku, and onto a fresh new (free) Platform-as-a-Service - James Hudson" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="http://www.disconnectionist.com/blog/heroku_migrate/title.jpeg" />
-    <meta property="og:url" content="http://www.disconnectionist.com/blog/getting-django-app-off-heroku.html" />
-    <meta property="og:site_name" content="The Disconnectionist - James Hudson's Blog" />
-    <meta property="og:description" content="Migrating your Django app off Heroku, and onto a fresh new (free) Platform-as-a-Service." />
-    <meta property="fb:app_id" content="277836282350749" />
-	<meta charset="ISO-8859-1">
-	<title>Migrating your Django app off Heroku, and onto a fresh new (free) Platform-as-a-Service - James Hudson</title>
-	
-	
-	<style type="text/css" media="all">
-		@import "stylesheet.css";
-	</style>
-</head>
+{% extends "%blog_post_base.html" %}
 
-<body>
 
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v14.0&appId=896766990474152&autoLogAppEvents=1" nonce="rFrIvPtM"></script>
+{% block title %}Migrating your Django app off Heroku, and onto a fresh new (free) Platform-as-a-Service{% endblock %}
+{% block title_img %}heroku_migrate/title.jpeg{% endblock %}
+{% block page_url %}getting-django-app-off-heroku.html{% endblock %}
+{% block publish_date %}2022-09-07{% endblock %}
 
-<h3><a href="http://www.disconnectionist.com">Home</a> | 2022-09-07 | (c)2022 James Hudson</h3> 
-
-<h1>Migrating your Django app off Heroku, and onto a fresh new (free) Platform-as-a-Service</h1>
-
-<img src="heroku_migrate/title.jpeg" class="flat-image" alt="Boat">
+{% block content %}
 
 <h2 id="why_am_i_writing_this">Who is this for?</h2>
 
@@ -229,52 +210,4 @@ End with a backslash and a period on a line by itself, or an EOF signal.</p>
 
 <p>In closing, I would say that us small developers are spoiled for choice; we just have so many interesting options.</p>
 
-<p>James Hudson</p>
-
-<p><a href="mailto:bugs.feedback.whatever@gmail.com">If you have any thoughts on this, please email me.</a> Or at least "like" or "share" this post if you think others would appreciate it. </p>
-
-
-
- 
- <a href="https://twitter.com/share" class="twitter-share-button" data-size="large">Tweet</a>
- <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-<a href="https://twitter.com/JamesSHudson" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @JamesSHudson</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-
-<fb:like href="http://www.disconnectionist.com/blog/getting-django-app-off-heroku.html" width="300" layout="standard" action="like" show_faces="true" share="true"></fb:like>
-
-<a href = "http://feed43.com/6737301644655144.xml">RSS Feed</a>
-
-<hr>
-
-<h3>OTHER POSTS:</h3>
-<table class = "posts">
-<tr><td><img src="transition_tn.jpg"></td><td><a href="its-monday-morning-but-i-dont-have-to-go-to-work-ever-again.html">It's Monday morning, but I don't have to go to work. Ever again.</a> </td></tr>
-<tr><td><img src="city_tn.jpg"></td><td><a href="becoming-a-part-time-superhuman.html">Become a Part-Time Superhuman: Work a 4-Hour-Day</a> </td></tr>
-<tr><td><img src="box_tn.jpg"></td><td><a href="your-life-as-the-perfect-kitchen.html">Adequate is better than more: your life as the perfect kitchen</a> </td></tr>
-<tr><td><img src="funnel_tn.jpg"></td><td><a href="sales.html">This is the Sales Manual you should have been given at graduation</a></td></tr>
-<tr><td><img src="sekt_tn.jpg"></td><td><a href="app-for-free.html">I'll build your app to help you become independent. For free.</a></td></tr>
-<tr><td><img src="city_tn.jpg"></td><td><a href="why-no-fb-killer.html">Why there is no Facebook killer: the death of the P2P dream</a></td></tr>
-<tr><td><img src="berlin_tn.jpg"></td><td><a href="berlin-freelance.html">How to become a freelancer in Berlin: the tricks and the traps</a></td></tr>
-<tr><td><img src="proposal_tn.jpg"></td><td><a href="proposal.html">How to write a proposal they can't refuse</a></td></tr>
-<tr><td><img src="coding_happy_tn.jpg"></td><td><a href="learning_programming.html">Programming basics for everyone: how to try coding right now, and why you need to.</a></td></tr>
-<tr><td><img src="pole_tn.jpg"></td><td><a href="pole_dancing.html">Poledancing versus programming: break away from your business and run it remotely.</a></td></tr>
-<tr><td><img src="city_tn.jpg"></td><td><a href="freelancer_ethics.html">The Freelancer's Code of Ethics: doing good, standing up for yourself, and not burning down the building.</a></td></tr>
-<tr><td><img src="city_tn.jpg"></td><td><a href="the_tragic_flaws_of_terrible_projects.html">The Tragic Flaws of Terrible Projects</a></td></tr>
-<tr><td><img src="city_tn.jpg"></td><td><a href="getting-django-app-off-heroku.html">Migrating your Django app off Heroku, and onto a fresh new (free) Platform-as-a-Service</a></td></tr>
-<tr></table></tr>
-<hr>
-
-<h4>Disclaimer</h4>
-<p><i>Needless to say, this blog isn't financial or legal advice, an excuse for getting fired, or promising that any of these ideas will work for you. The companies or people I mention may not agree with my opinions here. Don't do anything reckless, damaging or hurtful to anyone! In the future you might need your bridges unburnt. 
-	Images used under fair use, and are copyright their respective owners.</i>
-	(c)2014-2019 James Hudson</i></p>
-
-
-</body>
-</HTML>
-
-
-
+{% endblock %}
