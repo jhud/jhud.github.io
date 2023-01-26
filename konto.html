@@ -1,0 +1,40 @@
+                                <script>
+                                var company = 73;
+                                </script>
+<link rel="stylesheet" type="text/css" href="https://super-fit.herokuapp.com/static/styles/integration.css">
+<link rel="stylesheet" type="text/css" href="https://super-fit.herokuapp.com/static/styles/integration_koala.css">
+                                <script src="https://super-fit.herokuapp.com/static/js_library/superfit.js"></script>
+									<script src="https://musepoledance.de/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp"></script>  
+<style>
+h2 {
+margin-top: 48px;
+margin-bottom: 24px;
+}
+</style>
+
+                            <div id="navbar"></div>
+                            <div id="account_options">
+                                <a class="nav_button" href="/profile">Edit profile</a>
+                                <a class="nav_button" href="/change-password">Change password</a>
+                                <a id="nav_logout" class="nav_button" onclick="logout('bookings')";>Logout</a> 
+                            </div>
+                            <h2 id="action_heading">Actions</h2>
+			    <div id="action_bar"></div>
+                            <h2 id="account_balance_heading">Account Balance</h2>
+                            <div id="visitbalance_base" class="visitbalance"></div>
+                            <h2 id="calendar_heading">Calendar Integration</h2>
+                            <p>🗓</p>
+                            <div id="calendar_link_base" class="calendar_link"></div>
+                            <h2 id="bookings_heading">Bookings</h2>
+                            <div id="booking_base" class="booking"></div>
+                            <h2 id="recharges_heading">Recharges</h2>
+                            <div id="recharge_base" class="recharge"></div>
+
+                                <script>
+                                refreshStatusBar("#navbar");
+                                refreshVisitBalances("#visitbalance_base");
+                                refreshBookings("#booking_base");
+                                refreshRecharges("#recharge_base");
+                                refreshCalendarLink("#calendar_link_base");
+								refreshRedeemGiftCard("#action_bar");
+                                </script>
