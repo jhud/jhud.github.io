@@ -29,7 +29,7 @@ jQuery(document).ready(function() {
         });
 },
 (response) => {
-	var home = "/kursbuchungen1";
+	var home = "/bookings";
        if (response["status"] === "ok") { 
          setLoggedIn(response["user"], response["key"]);
          window.location.replace(home);
