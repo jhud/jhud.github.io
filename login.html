@@ -1,0 +1,34 @@
+<script> var company = 73;</script>
+<script src="https://super-fit.herokuapp.com/static/js_library/superfit.js"></script>
+<link rel="stylesheet" type="text/css" href="https://super-fit.herokuapp.com/static/styles/integration_koala.css">
+<link rel="stylesheet" type="text/css" href="https://super-fit.herokuapp.com/static/styles/integration.css">
+<div id="navbar"></div>
+<script>refreshStatusBar("#navbar");</script>
+
+<form id="login" class="login" method="post">
+<div class="container">
+<label for="username">
+<b>Email</b></label>
+<input id="username" name="username" required="" type="text" placeholder="Enter email" />
+<label for="password"><b>Password</b></label>
+<input id="password" name="password" required="" type="password" placeholder="Enter Password" />
+
+<input type="button" value="Login" id="login_button" onclick="login('bookings')">
+
+</div>
+</form>
+<div id="signup_forgot_password_bar">
+
+<a id="forgot_password_text" href="https://super-fit.herokuapp.com/password_reset/73/">Forgot password</a>
+<div id="sign_up_text">New user? <a href="/signup/">Sign up</a></div>
+</div>
+<script>
+const un = jQuery("label[for='username']");
+const pw = jQuery("label[for='password']");
+jQuery("#username").attr("placeholder", phrase("enterEmail"));
+un.text(phrase("email"));
+jQuery("#password").attr("placeholder", phrase("enterPassword"));
+pw.text(phrase("password"));
+jQuery("#forgot_password_text").text(phrase("forgotPassword"));
+jQuery("#sign_up_text").html(phrase("newUserSignUp"));
+</script>
