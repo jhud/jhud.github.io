@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-   
-	<title>Pole with Lena</title>
-	
-	
-	<style type="text/css" media="all">
-		@import "koala.css";
-	</style>
-</head>
+{% extends "%koala_base.html" %}
+{% block title %}Pole with Lena{% endblock %}
 
-<body>
- 
-<h3>Pole with Lena</h3> 
-
-
-
+{% block content %}
 
 <script> var company = 73;</script>
 <link rel="stylesheet" type="text/css" href="https://super-fit.herokuapp.com/static/styles/integration.css">
@@ -60,9 +46,4 @@
 </div>
 <div style="height:50px"></div>
 
-
-
-</body>
-</HTML>
-
-
+{% endblock %}

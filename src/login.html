@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-   
-	<title>Pole with Lena</title>
-	
-	
-	<style type="text/css" media="all">
-		@import "koala.css";
-	</style>
-</head>
+{% extends "%koala_base.html" %}
+{% block title %}Pole with Lena{% endblock %}
 
-<body>
- 
-<h3>Pole with Lena</h3> 
-
-
-
+{% block content %}
 
 <script> var company = 73;</script>
 <script src="https://super-fit.herokuapp.com/static/js_library/superfit.js"></script>
@@ -53,9 +39,4 @@ jQuery("#forgot_password_text").text(phrase("forgotPassword"));
 jQuery("#sign_up_text").html(phrase("newUserSignUp"));
 </script>
 
-
-
-</body>
-</HTML>
-
-
+{% endblock %}

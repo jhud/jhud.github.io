@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-   
-	<title>Pole with Lena - my profile</title>
-	
-	
-	<style type="text/css" media="all">
-		@import "koala.css";
-	</style>
-</head>
+{% extends "%koala_base.html" %}
+{% block title %}Pole with Lena - my profile{% endblock %}
 
-<body>
- 
-<h3>Pole with Lena</h3> 
-
-
-
+{% block content %}
 
                                 <script>
                                 var company = 73;
@@ -58,9 +44,4 @@ margin-bottom: 24px;
 								refreshRedeemGiftCard("#action_bar");
                                 </script>
 								
-								
-
-</body>
-</HTML>
-
-
+								{%endblock%}
