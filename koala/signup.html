@@ -1,0 +1,51 @@
+
+<script>
+	var company = 76;
+</script>
+	<script src="https://musepoledance.de/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp"></script>  
+<script src="https://super-fit.herokuapp.com/static/js_library/superfit.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<div id="inject_content">
+    </div>
+<style>#id_birthdate {z-index:1000 !important;}</style>
+<script>
+jQuery(document).ready(function() { 
+	injectForm("https://super-fit.herokuapp.com/signup_api/73/", "#inject_content",
+() => {
+ var picker = jQuery('#id_birthdate');
+ picker.datepicker({
+            defaultDate: '01/01/1990',
+            dateFormat : 'dd/mm/yy',
+            changeMonth : true,
+            changeYear : true,
+            yearRange: '-100y:c+nn',
+            maxDate: '-1d'
+        });
+},
+(response) => {
+	var home = "/kursbuchungen1";
+       if (response["status"] === "ok") { 
+         setLoggedIn(response["user"], response["key"]);
+         window.location.replace(home);
+       }
+       else if (response["status"] === "exists") {
+         alert(response["message"]);
+         window.location.replace("/login");
+       }
+       else if (response["status"] === "studio_blocked") {
+         alert(response["message"]);
+         window.location.replace(home);
+       }
+       else {
+         alert(response["message"]);
+         window.location.replace(home);
+       }
+   });
+});
+</script></p>
