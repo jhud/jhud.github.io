@@ -1,7 +1,7 @@
 {% extends "%blog_post_base.html" %}
 {% block title %}AI and your business{% endblock %}
 {% block title_img %}skyline.jpg{% endblock %}
-{% block page_url %}free_page_hosting.html{% endblock %}
+{% block page_url %}ai_and_your_business.html{% endblock %}
 {% block publish_date %}2023-04-06{% endblock %}
 {% block page_description %}Ideas for adapting your business to take advantage of the AI revolution.{% endblock %}
 {% block metatags %}ai,llm,chatgpt,machine learning{% endblock %}
@@ -20,7 +20,7 @@ Note that this information will probably go out of date very quickly, since the 
 
 ##Who is this for?
 
-Everyone. If you've been discouraged by the hype and haven't got an account on chat.openai.com yet; I’d strongly urge you to get one, so you can see how it can magically write your website content or other text, or accelerate other business tasks.
+Everyone. If you've been discouraged by the hype and haven't got an account on [chat.openai.com](chat.openai.com) yet; I’d strongly urge you to get one, so you can see how it can magically write your website content or other text, or accelerate other business tasks.
 
 I think soon these AI tools will become ubiquitous, and impossible to ignore in any aspect of life.
 
