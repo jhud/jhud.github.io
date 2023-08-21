@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<style type="text/css" media="all">
-		@import "style.css";
-	</style>
-	<title>James Hudson - freelance software developer in Berlin</title>
-</head>
-
-<body>
-	<div class="navbar">
-		<a href="index.html">Home</a>
-		<a href="index.html">In the Press</a>
-		<a href="index.html">Contact</a>
-	</div>
-	<div id="content">
-		
+{% extends "%main_base.html" %}
+{% block content %}
 		<div id="intro" class="title">
 			<img id="profile_big" src="profile.jpg">
 			<div class="intro_text">
@@ -51,9 +35,4 @@ I developed the Ampelinis XXL children’s educational game for Android and iOS 
 
 	
 		</div>
-
-	</div>
-</body>
-</HTML>
-
-
+{% endblock %}

@@ -1,5 +1,6 @@
 :root {
   --theme: #2e54f7;
+  --page-width: 990px;
 }
 
 body {
@@ -21,7 +22,7 @@ body {
 	margin-right: auto;
 	display: flex;
 	flex-direction: column;
-	max-width: 900px;
+	max-width: var(--page-width);
 }
 
 .title {
@@ -50,4 +51,26 @@ body {
 .testimonial {
 	margin-left: 20px;
 	margin-bottom: 40px;
+}
+
+.navbar {
+	max-width: var(--page-width);
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	gap: 20px;
+}
+
+.navbar a {
+	color: var(--theme);
+	text-decoration-line: none;
+	font-size: 24px;
+}
+
+.navbar a:visited {
+	color: var(--theme);
+}
+
+.navbar a:hover {
+	color: white;
 }
