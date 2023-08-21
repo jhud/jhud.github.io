@@ -1,0 +1,53 @@
+:root {
+  --theme: #2e54f7;
+}
+
+body {
+	font-family: sans-serif;
+	background-color: black;
+	color: white;
+}
+
+#intro {
+	margin-top: 30vh;
+	margin-bottom: 80px;
+	display: flex;
+	flex-direction: column;
+	
+}
+
+#content {
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-direction: column;
+	max-width: 900px;
+}
+
+.title {
+	font-size: 36px;
+	font-weight: 200;
+	align-items: center;
+	gap: 40px;
+}
+
+#profile_big {
+	max-height: 200px;
+	border-radius: 100px;
+	aspect-ratio: 1;
+}
+
+.section {
+	margin-top: 80px;
+	margin-bottom: 80px;
+}
+
+.section_header {
+	font-size: 28px;
+	font-weight: 300;
+}
+
+.testimonial {
+	margin-left: 20px;
+	margin-bottom: 40px;
+}
