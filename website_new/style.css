@@ -25,6 +25,10 @@ body {
 	max-width: var(--page-width);
 }
 
+#site_footer {
+	text-align: center;
+}
+
 .title {
 	font-size: 36px;
 	font-weight: 200;
