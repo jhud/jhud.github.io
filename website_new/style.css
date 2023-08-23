@@ -64,7 +64,7 @@ body {
 }
 
 .title {
-	font-size: 36px;
+	font-size: 3rem;
 	font-weight: 200;
 	align-items: center;
 	gap: 40px;
@@ -82,12 +82,35 @@ body {
 }
 
 .section_header {
-	font-size: 28px;
+	font-size: 2rem;
 	font-weight: 300;
+	margin-bottom: 24px;
 }
 
 .testimonial {
 	margin-left: 20px;
 	margin-bottom: 40px;
+}
+
+.customer_list {
+	display: flex;
+	justify-content: center;
+	flex-flow: wrap;
+	gap: 48px;
+}
+
+.customer_widget {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.customer_widget img {
+	height: 100px;
+}
+
+.customer_widget a {
+	color: var(--theme);
+	text-decoration-line: none;
 }
 

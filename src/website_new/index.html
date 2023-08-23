@@ -1,5 +1,6 @@
 {% set page_id = "page_home" %}
 {% extends "%main_base.html" %}
+{% from 'widgets.j2' import customer %}
 {% block content %}
 		<div id="intro" class="title">
 			<img id="profile_big" src="images/profile.jpg">
@@ -18,7 +19,11 @@
 
 
 
-			<div class="testimonial">JawSpace www.jawspace.app</div>
+			<div class="testimonial">
+				<script src=“https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js”></script>
+				<lottie-player src=“https://lottie.host/0cf896b5-285f-4712-858a-50a2df568373/q6jVsMOuly.json” background=“Transparent” speed=“1” style=“width: 300px; height: 300px” direction=“1” mode=“normal” loop autoplay></lottie-player>
+				JawSpace www.jawspace.app
+			</div>
 
 
 			<div class="testimonial">Open source? I made the official Arduino Bluetooth notifications handler for the ESP32 chipset. <a href="https://github.com/Smartphone-Companions/ESP32-ANCS-Notifications">Check it out on GitHub</a>.</div>
@@ -26,11 +31,15 @@
 
 
 		<div id="customers" class="section">
-			<div class="customer">https://www.wireless-iot-solutions.com/</div>
-			<div class="customer">https://www.klangchat.com</div>
-			<div class="customer">https://research2guidance.com</div>
-			<div class="customer">https://www.eobiont.de/</div>
-			<div class="customer">https://www.saberastro.com</div>
+			<div class="section_header">Customers</div>
+			<div class="customer_list">
+				{{ customer("Goethe Institut", "https://www.goethe.de", "goethe_institut")}}
+				{{ customer("Wireless IoT Solutions", "https://www.wireless-iot-solutions.com/", "wis")}}
+				{{ customer("Klangchat", "https://www.klangchat.com", "klangchat")}}
+				{{ customer("Research 2 Guidance", "https://research2guidance.com", "research2guidance")}}
+				{{ customer("eobiont", "https://www.eobiont.de/", "eobiont")}}
+				{{ customer("Saber Astronautics", "https://www.saberastro.com", "saberastro")}}
+			</div>
 		</div>
 
 
