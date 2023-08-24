@@ -1,3 +1,11 @@
+{% macro navbar_item(name, url, id, current_page_id) %}
+	{% if current_page_id == id %}
+		<div>{{name}}</div>
+	{%else%}
+		<a href="{{url}}">{{name}}</a>
+	{%endif%}
+{% endmacro %}
+
 {% macro customer(name, url, id) %}
 	<div id="customer_{{id}}" class="customer_widget"><a href="{{url}}"><img src="images/customer_logos/{{id}}.png"><div class="name">{{name}}</div></a></div>
 {% endmacro %}

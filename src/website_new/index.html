@@ -2,70 +2,41 @@
 {% extends "%main_base.html" %}
 {% from 'widgets.j2' import customer %}
 {% block content %}
-		<div id="intro" class="title">
-			<img id="profile_big" src="images/profile.jpg">
-			<div class="intro_text">
-				Hi, I'm James. As a software developer and consultant, I specialize in tackling intricate, demanding, imaginative, and meaningful projects.
-			</div>
+	<div id="intro" class="title">
+		<img id="profile_big" src="images/profile.jpg">
+		<div class="intro_text">
+			Hi, I'm James. As a software developer and consultant, I specialize in intricate, demanding, imaginative, and meaningful projects.
 		</div>
+	</div>
 
-		<div id="testimonials" class="section">
-			<div class="section_header">Testimonials</div>
-			<div class="testimonial">
-				<img height=300 src="images/stude-phone-mockup.png.webp">
-				<div>Create music with anyone, anywhere, without delay. </div>
-				I am acting CTO and lead developer of the Stude music production system, which creates a virtual online recording studio. This system, which is yet to be publicly launched, has already been used to produce several European chart-topping tracks. https://www.stude.io/. “Create music with anyone, anywhere, without delay. "</div>
+	{% include "showcase.j2" %}
 
-
-
-
-			<div class="testimonial">
-				<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script><lottie-player src="https://lottie.host/0cf896b5-285f-4712-858a-50a2df568373/q6jVsMOuly.json" background="Transparent" speed="1" style="width: 300px; height: 300px" direction="1" mode="normal" loop autoplay></lottie-player>
-				JawSpace www.jawspace.app
-			</div>
-
-
-			<div class="testimonial">Open source? I made the official Arduino Bluetooth notifications handler for the ESP32 chipset. <a href="https://github.com/Smartphone-Companions/ESP32-ANCS-Notifications">Check it out on GitHub</a>.</div>
-</div>
-
-
-		<div id="customers" class="section">
-			<div class="section_header">Customers</div>
-			<div class="customer_list">
-				{{ customer("GameLab", "https://www.gamelab.berlin", "gamelab")}}
-				{{ customer("Goethe Institut", "https://www.goethe.de", "goethe_institut")}}
-				{{ customer("Wireless IoT Solutions", "https://www.wireless-iot-solutions.com/", "wis")}}
-				{{ customer("Klangchat", "https://www.klangchat.com", "klangchat")}}
-				{{ customer("NuvoAir", "https://www.nuvoair.com", "nuvoair")}}
-				{{ customer("Research 2 Guidance", "https://research2guidance.com", "research2guidance")}}
-				{{ customer("eobiont", "https://www.eobiont.de/", "eobiont")}}
-				{{ customer("Saber Astronautics", "https://www.saberastro.com", "saberastro")}}
-			</div>
+	<div id="customers" class="section">
+		<div class="section_header">Some customers</div>
+		<div class="customer_list">
+			{{ customer("GameLab", "https://www.gamelab.berlin", "gamelab")}}
+			{{ customer("Goethe Institut", "https://www.goethe.de", "goethe_institut")}}
+			{{ customer("Wireless IoT Solutions", "https://www.wireless-iot-solutions.com/", "wis")}}
+			{{ customer("Klangchat", "https://www.klangchat.com", "klangchat")}}
+			{{ customer("NuvoAir", "https://www.nuvoair.com", "nuvoair")}}
+			{{ customer("Research 2 Guidance", "https://research2guidance.com", "research2guidance")}}
+			{{ customer("eobiont", "https://www.eobiont.de/", "eobiont")}}
+			{{ customer("Saber Astronautics", "https://www.saberastro.com", "saberastro")}}
 		</div>
+	</div>
 
+	<div id="at_a_glance" class="section">
+		<div class="section_header">At a glance</div>
+		<ul>
+			<li>Based in Berlin, working remotely worldwide.</li>
+			<li>Software from concept to release.</li>
+			<li>Proficient in 13+ languages and their ecosystems: apps, full-stack services, or physical devices.</li>
+			<li>Graphics, multimedia, and creative projects are my specialty.</li>
+			<li>Englisch ist meine Muttersprache, aber ich arbeite gerne auf Deutsch (Niveau B2).</li>
+		</ul>
+	</div>
+	<div id="disclaimer">All trademarks, logos and brand names are the property of their respective owners. All company, product and service names used in this website are for identification purposes only.</div>
 
-		<div id="at_a_glance" class="section">
-			<div class="section_header">At a glance</div>
-			<ul>
-				<li>Based in Berlin, working remotely worldwide.</li>
-				<li>Software from concept to release, plus hardware.</li>
-				<li>Proficient in 13+ languages and their ecosystems.</li>
-				<li>Apps, full-stack services, or Internet of Things devices.</li>
-				<li>Graphics, multimedia, and creative projects are my specialty.</li>
-				<li>Englisch ist meine Muttersprache, aber ich arbeite gerne auf Deutsch (Niveau B2).</li>
-			</ul>
-		</div>
-
-		<div id="mission_statement" class="section">
-			<div class="section_header">Mission</div>
-			<p>I build software with interchangeable modules which can be improved and fixed without changing the entire system by prioritising the development of features in manageable chunks to reduce time and resource usage.</p>
-
-			<p>In valuing communication skills and teamwork as much as the technical, I delivery quality software to suit your company’s unique needs in a dynamic, ever-changing technological landscape.</p>
-
-			<p>In my view, technology has advanced to the point where its capabilities are almost limitless. As such, the obstacles that remain are no longer solely technical in nature, but instead center on maintaining positive business relationships. Building and maintaining a high-performing team is a greater priority than the technology itself, and I am committed to fostering a comfortable, positive, and productive business environment.</p>
-		</div>
-
-	
-		</div>
-		<div>All trademarks, logos and brand names are the property of their respective owners. All company, product and service names used in this website are for identification purposes only.</div>
+	{# Player at the bottom, so it will not stall the page as it loads.#}
+	<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 {% endblock %}

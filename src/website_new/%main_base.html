@@ -1,3 +1,4 @@
+{% from 'widgets.j2' import navbar_item %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +12,12 @@
 
 <body>
 	<div class="navbar">
-		{% if page_id == "page_home" %}<div>Home</div>{%else%}<a href="index.html">Home</a>{%endif%}
-		{% if page_id == "page_press" %}<div>In the press</div>{%else%}<a href="press.html">In the press</a>{%endif%}
-		{% if page_id == "page_contact" %}<div>Contact</div>{%else%}<a href="contact.html">Contact</a>{%endif%}
+		{{ navbar_item("Home", "index.html", "page_home", page_id)}}
+		{{ navbar_item("What I do", "work.html", "page_work", page_id)}}
+		{{ navbar_item("Testimonials", "testimonials.html", "page_testimonials", page_id)}}
+		{{ navbar_item("Contact", "contact.html", "page_contact", page_id)}}
 	</div>
+	<hr>
 	<div id="{{page_id}}" class="content">
 		{% block content %}{% endblock %}
 	</div>
