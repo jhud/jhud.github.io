@@ -292,6 +292,7 @@ li {
 
 @media only screen and (max-width: 800px) {
 	#intro {
+		margin-top: 15vh;
 		padding: 0.5rem;
 	}
 	#intro .intro_text {
