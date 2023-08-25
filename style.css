@@ -282,3 +282,32 @@ li {
 #customer_saberastro img {
 	background: #000;
 }
+
+.showcase .graphic img {
+	max-height: 500px;
+	max-width: 100%;
+}
+
+/* Mobile */
+
+@media only screen and (max-width: 800px) {
+	#intro {
+		padding: 0.5rem;
+	}
+	#intro .intro_text {
+		font-size: 1.75rem;
+	}
+	
+	.section_header {
+		font-size: 2.0rem;
+	}
+	
+	.showcase .title {
+		font-size: 1.5rem;
+	}
+	
+	.content {
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+}
