@@ -269,11 +269,6 @@ li {
 	color: #777;
 }
 
-#intro,.customer_list {
-	//color: white;
-	//background: linear-gradient(250deg, rgba(0,0,0,0.2) 5%, rgba(0,0,0,0.4) 95%);
-}
-
 
 .customer_widget img {
 		padding: 4px;
@@ -286,6 +281,16 @@ li {
 .showcase .graphic img {
 	max-height: 500px;
 	max-width: 100%;
+}
+
+#testimonials .title {
+	font-size: 1.6rem;
+	font-weight: 250;
+}
+
+#testimonials hr {
+	margin-top: 24px;
+	margin-bottom: 24px;
 }
 
 /* Mobile */
