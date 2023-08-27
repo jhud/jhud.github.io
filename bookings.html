@@ -47,7 +47,7 @@
 <p style="height: 40px"></p>
 <p>
 	Studio address:
-	<ul>
+	<ul id="address_list">
 		<li id="studio_address"><b>Orbit:</b> Weichselstraße 33, 10247 Berlin-Friedrichshain (S+U Frankfurter Allee)</li>
 	</ul>
 </p>
@@ -55,7 +55,10 @@
 <div style="height:50px"></div>
 
 <script>
-	$("#studio_address").html(`<b>${styling.studioName}</b>${styling.studioAddress}`);
+    	for (school_id in styling.schools) {
+            const school = styling.schools[school_id];
+	        jQuery("#address_list").append(`<li><b>${school.name}</b>${school.address}</li>`);
+        }
 </script>
 
 
