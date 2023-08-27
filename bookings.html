@@ -48,16 +48,15 @@
 <p>
 	Studio address:
 	<ul>
-		<li><b>Orbit:</b> Weichselstraße 33, 10247 Berlin-Friedrichshain (S+U Frankfurter Allee)</li>
+		<li id="studio_address"><b>Orbit:</b> Weichselstraße 33, 10247 Berlin-Friedrichshain (S+U Frankfurter Allee)</li>
 	</ul>
 </p>
 
-<div id="popup_window">
-<div id="popup_title"></div>
-<div id="popup_text"></div>
-<button class="popup_dismiss" onclick="jQuery('#popup_window').hide();">OK</button>
-</div>
 <div style="height:50px"></div>
+
+<script>
+	$("#studio_address").html(`<b>${styling.studioName}</b>${styling.studioAddress}`);
+</script>
 
 
 
