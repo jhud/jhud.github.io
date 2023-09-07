@@ -211,7 +211,7 @@ li {
 .section_header {
 	font-size: 3.75rem;
 	font-weight: 300;
-	margin-bottom: 80px;
+	margin-bottom: 64px;
 }
 
 .showcase {
@@ -269,6 +269,15 @@ li {
 	color: #777;
 }
 
+.customer_subtitle  {
+	font-size: 1.6rem;
+	font-weight: 250;
+}
+
+.customer_list {
+	margin-top: 12px;
+	margin-bottom: 76px;
+}
 
 .customer_widget img {
 		padding: 4px;
