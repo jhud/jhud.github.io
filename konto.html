@@ -17,50 +17,41 @@
 <h3>Pole with Lena</h3> 
 
 
+        <!-- SF booking system integration version 5, company the studio  -->
+        
 
 
-                                <script>
-                                var company = 73;
-                                </script>
-<link rel="stylesheet" type="text/css" href="https://super-fit.herokuapp.com/static/styles/integration.css">
-<link rel="stylesheet" type="text/css" href="https://super-fit.herokuapp.com/static/styles/integration_koala.css">
-                                <script src="https://super-fit.herokuapp.com/static/js_library/superfit.js"></script>
-									<script src="https://musepoledance.de/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp"></script>  
-<style>
-h2 {
-margin-top: 48px;
-margin-bottom: 24px;
-}
-</style>
 
-                            <div id="navbar"></div>
-                            <div id="account_options">
-                                <a class="nav_button" href="/profile">Edit profile</a>
-                                <a class="nav_button" href="/change-password">Change password</a>
-                                <a id="nav_logout" class="nav_button" onclick="logout('bookings')";>Logout</a> 
-                            </div>
-                            <h2 id="action_heading">Actions</h2>
-			    <div id="action_bar"></div>
-                            <h2 id="account_balance_heading">Account Balance</h2>
-                            <div id="visitbalance_base" class="visitbalance"></div>
-                            <h2 id="calendar_heading">Calendar Integration</h2>
-                            <p>🗓</p>
-                            <div id="calendar_link_base" class="calendar_link"></div>
-                            <h2 id="bookings_heading">Bookings</h2>
-                            <div id="booking_base" class="booking"></div>
-                            <h2 id="recharges_heading">Recharges</h2>
-                            <div id="recharge_base" class="recharge"></div>
+ 
+    <script src="https://www.buubook.com/static/js/jquery-3.6.0.min.js"></script>
 
-                                <script>
-                                refreshStatusBar("#navbar");
-                                refreshVisitBalances("#visitbalance_base");
-                                refreshBookings("#booking_base");
-                                refreshRecharges("#recharge_base");
-                                refreshCalendarLink("#calendar_link_base");
-								refreshRedeemGiftCard("#action_bar");
-                                </script>
-								
-								
+
+
+<script> var company = 75;</script>
+<link rel="stylesheet" type="text/css" href="https://www.buubook.com/static/styles/integration.css">
+
+    <link rel="stylesheet" type="text/css" href="https://www.buubook.com/static/styles/vanilla_integration.css">
+
+<link rel="stylesheet" type="text/css" href="https://www.buubook.com/static/styles/integration_test.css">
+<script src="https://www.buubook.com/static/js_library/superfit.js"></script>
+
+        <script type="text/javascript" src="https://www.buubook.com/static/js_library/account.js"></script>
+        <div id="bs_content">
+        </div>
+        <script>
+            sf_injectDefaultAccountElements("bs_content", "konto");
+            sf_refreshDefaultAccountElements();
+        </script>
+
+                <script>
+	if (typeof sf_timetable_parameters == "undefined") {
+		const new_label = document.createElement("div");
+		new_label.style.cssText = "border: #a50 4px solid; padding: 12px;";
+		new_label.innerHTML = "<strong style='color: #a50'>Sorry, the server is undergoing scheduled maintenance, so you can't book right now. Please try again in a few minutes.<br>Es tut uns leid, der Server wird gerade gewartet, daher können Sie im Moment nicht buchen. Bitte versuchen Sie es in wenige Minuten erneut.</strong>";
+		document.getElementById("bs_content").prepend(new_label);
+	}
+</script>
+    
 
 </body>
 </HTML>
