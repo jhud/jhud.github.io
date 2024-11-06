@@ -14,44 +14,42 @@
 
 <body>
  
-<h3>Pole with Lena</h3> 
-
-
-        <!-- SF booking system integration version 5, company the studio  -->
+ 
+         <!-- SF booking system integration version 5, company the studio  -->
         
 
 
 
  
-    <script src="https://www.buubook.com/static/js/jquery-3.6.0.min.js"></script>
+     <script src="https://www.buubook.com/static/js/jquery-3.6.0.min.js"></script>
 
 
 
-<script> var company = 75;</script>
-<link rel="stylesheet" type="text/css" href="https://www.buubook.com/static/styles/integration.css">
+ <script> var company = 75;</script>
+ <link rel="stylesheet" type="text/css" href="https://www.buubook.com/static/styles/integration.css">
 
-    <link rel="stylesheet" type="text/css" href="https://www.buubook.com/static/styles/vanilla_integration.css">
+     <link rel="stylesheet" type="text/css" href="https://www.buubook.com/static/styles/vanilla_integration.css">
 
-<link rel="stylesheet" type="text/css" href="https://www.buubook.com/static/styles/integration_test.css">
-<script src="https://www.buubook.com/static/js_library/superfit.js"></script>
+ <link rel="stylesheet" type="text/css" href="https://www.buubook.com/static/styles/integration_test.css">
+ <script src="https://www.buubook.com/static/js_library/superfit.js"></script>
 
-        <script type="text/javascript" src="https://www.buubook.com/static/js_library/account.js"></script>
-        <div id="bs_content">
-        </div>
-        <script>
-            sf_injectDefaultAccountElements("bs_content", "konto");
-            sf_refreshDefaultAccountElements();
-        </script>
+         <script type="text/javascript" src="https://www.buubook.com/static/js_library/account.js"></script>
+         <div id="bs_content">
+         </div>
+         <script>
+             sf_injectDefaultAccountElements("bs_content", "konto");
+             sf_refreshDefaultAccountElements();
+         </script>
 
-                <script>
-	if (typeof sf_timetable_parameters == "undefined") {
-		const new_label = document.createElement("div");
-		new_label.style.cssText = "border: #a50 4px solid; padding: 12px;";
-		new_label.innerHTML = "<strong style='color: #a50'>Sorry, the server is undergoing scheduled maintenance, so you can't book right now. Please try again in a few minutes.<br>Es tut uns leid, der Server wird gerade gewartet, daher können Sie im Moment nicht buchen. Bitte versuchen Sie es in wenige Minuten erneut.</strong>";
-		document.getElementById("bs_content").prepend(new_label);
-	}
-</script>
-    
+                 <script>
+ 	if (typeof sf_timetable_parameters == "undefined") {
+ 		const new_label = document.createElement("div");
+ 		new_label.style.cssText = "border: #a50 4px solid; padding: 12px;";
+ 		new_label.innerHTML = "<strong style='color: #a50'>Sorry, the server is undergoing scheduled maintenance, so you can't book right now. Please try again in a few minutes.<br>Es tut uns leid, der Server wird gerade gewartet, daher können Sie im Moment nicht buchen. Bitte versuchen Sie es in wenige Minuten erneut.</strong>";
+ 		document.getElementById("bs_content").prepend(new_label);
+ 	}
+ </script>
+ 
 
 </body>
 </HTML>
