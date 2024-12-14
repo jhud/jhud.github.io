@@ -14,37 +14,77 @@
 
 <body>
  
-
-
-        <!-- SF booking system integration version 5, company the studio -->
-               
+<h3>Pole with Lena</h3> 
 
 
 
- 
-    <script src="https://www.buubook.com/static/js/jquery-3.6.0.min.js"></script>
+
+<script>var company = 73;</script>
+<script src="https://musepoledance.de/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp"></script>  
+<script src="https://super-fit.herokuapp.com/static/js_library/superfit.js"></script><link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"><script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script><link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"><script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script><link rel="stylesheet" type="text/css" href="https://super-fit.herokuapp.com/static/styles/integration.css"><link rel="stylesheet" type="text/css" href="https://super-fit.herokuapp.com/static/styles/integration_koala.css">
+
+<div id="navbar"></div>
+<hr>
+<div id="account_options">
+<a href = "/profile" class="nav_button current_nav">Edit profile</a> <a href = "/change-password" class="nav_button">Change password</a>
+</div>
+
+<div id="inject_content"></div>
+<style>
+#id_birthdate {
+  z-index:1000 !important;
+}
+.date {
+  z-index:1000 !important;
+}
+.eltdf-page-title{
+font-family: Oswald,sans-serif; font-size: 30px;
+    font-weight: 400;}
+#inject_content { margin: 40px;}
+div {
+    font-family: Lato,sans-serif;
+    font-size: 15px;
+    line-height: 27px;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+}
+.nav_info {
+color: #979797;
+}
+a{
+color: #2a2a2a;
+}
+a:hover, a:focus {
+    text-decoration: none;
+}
+</style>
+
+<script>
+jQuery(document).ready(function() { 
+	  refreshStatusBar("#navbar");
+ // jQuery(window).on('load', function() {
+    if (isLoggedIn()) {
+		injectForm("https://super-fit.herokuapp.com/accounts/profile/edit_api/", "#inject_content", 
+()=>{
+ var picker = jQuery('#id_birthdate');
+ picker.datepicker({
+            dateFormat : 'dd/mm/yy',
+            changeMonth : true,
+            changeYear : true,
+            yearRange: '-100y:c+nn',
+            maxDate: '-1d'
+        });
+},
+(response)=> {window.location.replace("/bookings");});
+	}
+	else {
+		window.location.replace("/login");
+	}
+//  });
+});
+</script>
 
 
-
-<script> var company = 75;</script>
-<link rel="stylesheet" type="text/css" href="https://www.buubook.com/static/styles/integration.css">
-
-    <link rel="stylesheet" type="text/css" href="https://www.buubook.com/static/styles/vanilla_integration.css">
-
-<link rel="stylesheet" type="text/css" href="https://www.buubook.com/static/styles/integration_test.css">
-<script src="https://www.buubook.com/static/js_library/superfit.js"></script>
-
-        <script src="https://www.buubook.com/static/js_plugins/the-datepicker.min.js"></script>
-        <link rel="stylesheet" href="https://www.buubook.com/static/js_plugins/the-datepicker.css">
-         <script type="text/javascript" src="https://www.buubook.com/static/js_library/account.js"></script>
-
-        <div id="bs_content">
-        </div>
-
-        <script>
-            sf_injectProfileEditCode("bs_content", "profile");
-        </script>
-    
 
 </body>
 </HTML>
